@@ -17,7 +17,8 @@
         </menu>
     </div>
 
-    <div>
+    <div id="rightPage">
+        <h1>Planning des Excursions</h1>
         <table>
             <thead>
                 <tr>
