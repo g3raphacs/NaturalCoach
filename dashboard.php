@@ -19,7 +19,6 @@
             } else {
                 header('Location: index.php');
             }
-
     ?>
 
     <div id="navbar">
@@ -33,6 +32,7 @@
     </div>
 
     <div id="rightPage">
+
         <table>
         <caption>PLANNING DES EXCURSIONS</caption>
             <thead>
@@ -49,17 +49,22 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>nom</td>
-                    <td>01/06/2020</td>
-                    <td>05/06/2020</td>
-                    <td>le Rif</td>
-                    <td>le Haut Atlas</td>
-                    <td>3/8<button>+</button></td>
-                    <td>1/2<button>+</button></td>
-                    <td>48 euros</td>
-                    <td><button>Modifier</button><button>Supprimer</button></td>
-                </tr>
+                    <?php
+                        $reponse = $base->query("SELECT * FROM `excursions`");
+                        while ($donnees = $reponse->fetch()){
+                        ?>
+                        <tr>
+                            <td><?php echo $donnees['nom']; ?></td>
+                            <td><?php echo $donnees['date_debut']; ?></td>
+                            <td><?php echo $donnees['date_fin']; ?></td>
+                            <td><?php echo $donnees['lieu_debut']; ?></td>
+                            <td><?php echo $donnees['lieu_fin']; ?></td>
+                            <td><?php echo $donnees['nbre_max']; ?><button>+</button></td>
+                            <td><?php echo $donnees['nbre_guides']; ?><button>+</button></td>
+                            <td><?php echo $donnees['prix']; ?></td>
+                            <td><button>Modifier</button><button>Supprimer</button></td>
+                        </tr>
+                    <?php } $reponse->closeCursor(); ?>
                 <tr>
                     <td><input type="text" name="nom" id="nom"></td>
                     <td><input type="date" name="date-d" id="date-d"></td>
