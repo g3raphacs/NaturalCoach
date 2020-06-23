@@ -4,11 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
     <!-- Connect to database  -->
-    <?php require_once('connect.php');?>
+    <?php require_once('scripts/connect.php');?>
+
+    <?php
+            $user;
+            session_start();
+            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                $user=$_SESSION['username'];
+            } else {
+                header('Location: index.php');
+            }
+
+    ?>
 
     <div id="navbar">
         <menu>
@@ -22,7 +34,7 @@
 
     <div id="rightPage">
         <table>
-        <caption>Planning des Excursions</caption>
+        <caption>PLANNING DES EXCURSIONS</caption>
             <thead>
                 <tr>
                     <th scope="col">Excursions</th>
