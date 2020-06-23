@@ -1,8 +1,8 @@
 <?php
+require_once('connect.php');
+
 $ok = true;
 $messages = array();
-$username='Jeremy';
-$password='lejee';
 
 if (!isset($_POST['username']) || empty($_POST['username'])){
     $ok = false;
@@ -15,13 +15,21 @@ if (!isset($_POST['password']) || empty($_POST['password'])){
 }
 
 if($ok){
-    if ($_POST['username']===$username && $_POST['password']===$password){
-        $messages[] = 'Successful login!';
-    }else{
-        $ok = false;
-        $messages[] = 'Incorrect username/password!';
-    }
+    $reponse = $base->query("SELECT * FROM `passwords`");
+    $success=false;
+
+    while ($donnees = $reponse->fetch()){
+        $messages=[];
+        if ($_POST['username']===$donnees['user'] && $_POST['password']===$donnees['password']){
+            $messages[] = 'Successful login!';
+        break;
+        }else{
+            $ok = false;
+            $messages[] = 'Incorrect username/password!';
+        }
+    } $reponse->closeCursor();
 }
+
 
 echo json_encode(
     array(

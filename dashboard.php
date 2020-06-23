@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
+    <!-- Connect to database  -->
+    <?php require_once('connect.php');?>
+
     <div id="navbar">
         <menu>
             <li><a href="dashboard.php">Planning</a></li>
@@ -18,19 +21,19 @@
     </div>
 
     <div id="rightPage">
-        <h1>Planning des Excursions</h1>
         <table>
+        <caption>Planning des Excursions</caption>
             <thead>
                 <tr>
-                    <th>Excursions</th>
-                    <th>Date début</th>
-                    <th>Date fin</th>
-                    <th>Lieu départ</th>
-                    <th>Lieu Arrivée</th>
-                    <th>Participants</th>
-                    <th>Guides</th>
-                    <th>Prix</th>
-                    <th>Editer</th>
+                    <th scope="col">Excursions</th>
+                    <th scope="col">Date début</th>
+                    <th scope="col">Date fin</th>
+                    <th scope="col">Lieu départ</th>
+                    <th scope="col">Lieu Arrivée</th>
+                    <th scope="col">Participants</th>
+                    <th scope="col">Guides</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Editer</th>
                 </tr>
             </thead>
             <tbody>

@@ -12,7 +12,7 @@ form.submit.addEventListener('click', (e)=>{
         .then( res => res.json() ).then( data =>{
             form.messages.style.display='none';
             if(data.ok){
-                location.href = 'dashboard.html';
+                location.href = 'dashboard.php';
             }else{
                 form.messages.innerHTML='';
                 form.messages.style.display='block';
