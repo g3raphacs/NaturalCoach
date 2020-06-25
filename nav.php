@@ -102,13 +102,13 @@
                                 </a>
                                 <ul>
                                     <li>
-                                        <a href="elements-dropdowns.html">
+                                        <a href="dashboard.php">
                                             <i class="metismenu-icon">
                                             </i>Gérer
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="elements-dropdowns.html">
+                                        <a href="new-excursion.php">
                                             <i class="metismenu-icon">
                                             </i>Ajouter
                                         </a>
@@ -129,7 +129,7 @@
                                 </a>
                                 <ul>
                                     <li>
-                                        <a href="elements-dropdowns.html">
+                                        <a href="regions.php">
                                             <i class="metismenu-icon">
                                             </i>Gérer
                                         </a>
@@ -156,13 +156,13 @@
                                 </a>
                                 <ul>
                                     <li>
-                                        <a href="elements-dropdowns.html">
+                                        <a href="guides.php">
                                             <i class="metismenu-icon">
                                             </i>Gérer
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="elements-dropdowns.html">
+                                        <a href="new-guide.php">
                                             <i class="metismenu-icon">
                                             </i>Ajouter
                                         </a>
@@ -183,13 +183,13 @@
                                 </a>
                                 <ul>
                                     <li>
-                                        <a href="elements-dropdowns.html">
+                                        <a href="randonneurs.php">
                                             <i class="metismenu-icon">
                                             </i>Gérer
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="elements-dropdowns.html">
+                                        <a href="new-randonneur.php">
                                             <i class="metismenu-icon">
                                             </i>Ajouter
                                         </a>
