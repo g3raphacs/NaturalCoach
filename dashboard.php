@@ -16,18 +16,6 @@
 </head>
 
 <body>
-
-    <?php
-        $user;
-        session_start();
-        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
-            $user=$_SESSION['username'];
-            require_once('scripts/connect.php');
-        } else {
-            header('Location: index.php');
-        }
-    ?>
-
             <!-- Include  -->
             <?php
             require_once('scripts/functions.php');
