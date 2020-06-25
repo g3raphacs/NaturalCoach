@@ -41,14 +41,21 @@
                         <div class="page-title-wrapper">
                             <div class="page-title-heading">
                                 <div class="page-title-icon">
-                                    <i class="icon-gradient bg-success fas fa-route"></i>
+                                    <span class="icon-gradient bg-success fas fa-route"></span>
                                 </div>
-                                <div>Gestion des excursions
+                                <div>
+                                    Gestion des excursions
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Titre>>________________________________________  -->
+                    <div class="tab-content">
+                        <form class="">
+                            <div class="position-relative form-group"><input name="address" id="search" placeholder="&#xF002; Search" style="font-family:Arial, Font Awesome\ 5 Free" type="text"class="form-control"></div>
+                        </form>
+                    </div>
+
 
                     <div class="">
                         <div class="row">
@@ -59,25 +66,30 @@
                                         $req -> closeCursor();
 
 
-                                        $req = $base->query("SELECT * FROM `excursions` ORDER BY `date_debut`");
+                                        $req = $base->query("SELECT
+                                                                e.ID,
+                                                                e.nom,
+                                                                e.date_debut,
+                                                                e.date_fin,
+                                                                e.nbre_max,
+                                                                e.prix,
+                                                                region1.Nom as depart,
+                                                                region2.Nom as arrivee
+                                                            FROM excursions as e
+                                                            INNER JOIN region region1 ON e.lieu_debut = region1.ID
+                                                            INNER JOIN region region2 ON e.lieu_fin = region2.ID");
+
                                         while ($donnees = $req->fetch()){
                                             $id=$donnees['ID'];
-                                            $id_debut=$donnees['lieu_debut'];
-                                            $id_fin=$donnees['lieu_fin'];
-                                            foreach ($regions as $region) {
-                                                if($region['ID']==$id_debut){
-                                                    $lieu_debut=$region['Nom'];
-                                                }
-                                                if($region['ID']==$id_fin){
-                                                    $lieu_fin=$region['Nom'];
-                                                }
-                                            }
 
-                                            $request =  $base->query("SELECT COUNT(*) FROM planning_guides WHERE excursion_id = $id");
+
+                                            $request =  $base->prepare("SELECT COUNT(*) FROM planning_guides WHERE excursion_id = :id");
+                                            $request->execute(array('id'=>$id));
                                             $guides = $request->fetch();
                                             $request -> closeCursor();
 
-                                            $request =  $base->query("SELECT COUNT(*) FROM inscriptions WHERE excursion_id = $id");
+                                            $request =  $base->prepare("SELECT COUNT(*) FROM inscriptions WHERE excursion_id = :id");
+                                            $request->execute(array('id'=>$id));
                                             $randonneurs = $request->fetch();
                                             $request -> closeCursor();
                                     ?>
@@ -85,44 +97,25 @@
                                             <div class="card mb-3 main-card">
                                                 <div class="card-body">
                                                     <div class="widget-content-left">
-                                                        <div class="card-title"><?php echo $donnees['nom']; ?><span class="text-primary"><?php echo ' '.$randonneurs[0].'/'.$donnees['nbre_max'].' '; ?><i class="metismenu-icon fas fa-hiking"></i></span></div>
+                                                        <div class="card-title"><?php echo $donnees['nom']; ?><span class="text-primary"><?php echo ' '.$randonneurs[0].'/'.$donnees['nbre_max'].' '; ?><span class="metismenu-icon fas fa-hiking"></span></span></div>
                                                         <div class="card-subtitle"><?php echo 'du '.dateFR($donnees['date_debut']).' au '.dateFR($donnees['date_fin']); ?></div>
                                                     </div>
                                                     <div class="collapse" id="<?php echo 'excu-collapse'.$donnees['ID']; ?>">
-                                                        <p><strong>Depart: </strong><span class="text-primary"><?php echo $lieu_debut; ?></span></p>
-                                                        <p><strong>Arrivée: </strong><span class="text-primary"><?php echo $lieu_fin; ?></span></p>
+                                                        <p><strong>Depart: </strong><span class="text-primary"><?php echo $donnees['depart']; ?></span></p>
+                                                        <p><strong>Arrivée: </strong><span class="text-primary"><?php echo $donnees['arrivee']; ?></span></p>
                                                         <p><strong>Guides: </strong><span class="text-primary"><?php echo $guides[0]; ?></span></p>
                                                         <p><strong>Prix: </strong><span class="text-primary"><?php echo $donnees['prix'].' euros'; ?></span></p>
                                                     </div>
                                                 </div>
                                                 <div class="card-footer">
-                                                    <button type="button" data-toggle="collapse" href="<?php echo '#excu-collapse'.$donnees['ID']; ?>" class="mr-2 btn btn-outline-success"><i class="fas fa-eye"></i></button>
-                                                    <button class="mr-2 btn btn-outline-success"><i class="fas fa-edit"></i></button>
-                                                    <button class="mr-2 btn btn-outline-danger"><i class="fas fa-minus-circle"></i></i></button>
+                                                    <button type="button" data-toggle="collapse" href="<?php echo '#excu-collapse'.$donnees['ID']; ?>" class="mr-2 btn btn-outline-success"><span class="fas fa-eye"></span></button>
+                                                    <button class="mr-2 btn btn-outline-success"><span class="fas fa-edit"></span></button>
+                                                    <button class="mr-2 btn btn-outline-danger"><span class="fas fa-minus-circle"></span></i></button>
                                                 </div>
                                             </div>
                                         </div>
                                     <?php } $req->closeCursor(); ?>
 
-                                    <!-- <div class="card-body">
-                                        <div class="widget-content-left">
-                                            <div class="card-title">Randonnée du test <span class="text-primary">3/8</span></div>
-                                            <div class="card-subtitle">du 20/06/2020 au 26/06/2020</div>
-                                        </div>
-                                        <div class="collapse" id="collapseExample121">
-                                            <p><strong>Depart: </strong><span class="text-primary">placeholder</span></p>
-                                            <p><strong>Arrivée: </strong><span class="text-primary">placeholder</span></p>
-                                            <p><strong>Guides: </strong><span class="text-primary">placeholder</span></p>
-                                            <p><strong>Prix: </strong><span class="text-primary">placeholder</span></p>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button type="button" data-toggle="collapse" href="#collapseExample121" class="mr-2 btnbtn-outline-success"><i class="fas fa-eye"></i></button>
-                                        <button class="mr-2 btn btn-outline-success"><i class="fas fa-edit"></i></button>
-                                        <button class="mr-2 btn btn-outline-danger"><i class="fas fa-minus-circle"></i></i></button>
-                                    </div> -->
-                                
-                            
 
                         </div>
                     </div>
