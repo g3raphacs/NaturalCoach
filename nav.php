@@ -135,7 +135,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="elements-dropdowns.html">
+                                        <a href="new-region.php">
                                             <i class="metismenu-icon">
                                             </i>Ajouter
                                         </a>

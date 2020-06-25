@@ -88,8 +88,9 @@
                                             <div class="card mb-3 main-card">
                                                 <div class="card-body">
                                                     <div class="widget-content-left">
-                                                        <div class="card-title"><?php echo $donnees['nom']; ?><span class="text-primary"><?php echo ' '.$randonneurs[0].'/'.$donnees['nbre_max'].' '; ?><span class="metismenu-icon fas fa-hiking"></span></span></div>
+                                                        <div class="card-title"><?php echo $donnees['nom']; ?></div>
                                                         <div class="card-subtitle"><?php echo 'du '.dateFR($donnees['date_debut']).' au '.dateFR($donnees['date_fin']); ?></div>
+                                                        <button class="mr-2 mb-2 btn-transition btn btn-outline-primary">Inscriptions <?php echo ' '.$randonneurs[0].'/'.$donnees['nbre_max'].' '; ?><span class="metismenu-icon fas fa-hiking"></button>
                                                     </div>
                                                     <div class="collapse" id="<?php echo 'excu-collapse'.$donnees['ID']; ?>">
                                                         <p><strong>Depart: </strong><span class="text-primary"><?php echo $donnees['depart']; ?></span></p>
