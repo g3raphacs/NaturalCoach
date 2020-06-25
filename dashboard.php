@@ -90,12 +90,11 @@
                                                     <div class="widget-content-left">
                                                         <div class="card-title"><?php echo $donnees['nom']; ?></div>
                                                         <div class="card-subtitle"><?php echo 'du '.dateFR($donnees['date_debut']).' au '.dateFR($donnees['date_fin']); ?></div>
-                                                        <button class="mr-2 mb-2 btn-transition btn btn-outline-primary">Inscriptions <?php echo ' '.$randonneurs[0].'/'.$donnees['nbre_max'].' '; ?><span class="metismenu-icon fas fa-hiking"></button>
+                                                        <button class="mr-6 ml-6 mb-2 btn-transition btn btn-outline-primary">Inscriptions &nbsp;<span class="metismenu-icon fas fa-hiking"><?php echo ' '.$randonneurs[0].'/'.$donnees['nbre_max'].' '; ?>&nbsp;<span class="metismenu-icon fas fa-portrait"><?php echo ' '.$guides[0].' '; ?></button>
                                                     </div>
                                                     <div class="collapse" id="<?php echo 'excu-collapse'.$donnees['ID']; ?>">
                                                         <p><strong>Depart: </strong><span class="text-primary"><?php echo $donnees['depart']; ?></span></p>
                                                         <p><strong>Arrivée: </strong><span class="text-primary"><?php echo $donnees['arrivee']; ?></span></p>
-                                                        <p><strong>Guides: </strong><span class="text-primary"><?php echo $guides[0]; ?></span></p>
                                                         <p><strong>Prix: </strong><span class="text-primary"><?php echo $donnees['prix'].' euros'; ?></span></p>
                                                     </div>
                                                 </div>
