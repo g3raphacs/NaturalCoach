@@ -94,12 +94,6 @@
                                 </a>
                                 <ul>
                                     <li>
-                                        <a href="elements-buttons-standard.html">
-                                            <i class="metismenu-icon"></i>
-                                            Calendrier
-                                        </a>
-                                    </li>
-                                    <li>
                                         <a href="elements-dropdowns.html">
                                             <i class="metismenu-icon">
                                             </i>Gérer

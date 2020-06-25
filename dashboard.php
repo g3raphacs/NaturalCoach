@@ -50,11 +50,14 @@
                         </div>
                     </div>
                     <!-- Titre>>________________________________________  -->
+
+                    <!-- Search Bar<<________________________________________  -->
                     <div class="tab-content">
                         <form class="">
                             <div class="position-relative form-group"><input name="address" id="search" placeholder="&#xF002; Search" style="font-family:Arial, Font Awesome\ 5 Free" type="text"class="form-control"></div>
                         </form>
                     </div>
+                    <!-- Search Bar>>________________________________________  -->
 
 
                     <div class="">
