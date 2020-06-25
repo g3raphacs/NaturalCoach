@@ -29,10 +29,10 @@
                         <div class="page-title-wrapper">
                             <div class="page-title-heading">
                                 <div class="page-title-icon">
-                                    <span class="icon-gradient bg-success fas fa-route"></span>
+                                    <span class="icon-gradient bg-success fas fa-hiking"></span>
                                 </div>
                                 <div>
-                                    Gestion des excursions
+                                    Gestion des Randonneurs
                                 </div>
                             </div>
                         </div>
@@ -52,50 +52,27 @@
                         <div class="row">
 
                                     <?php
-                                        $req = $base->query("SELECT * FROM region");
-                                        $regions = $req->fetchAll();
-                                        $req -> closeCursor();
 
-
-                                        $req = $base->query("SELECT
-                                                                e.ID,
-                                                                e.nom,
-                                                                e.date_debut,
-                                                                e.date_fin,
-                                                                e.nbre_max,
-                                                                e.prix,
-                                                                region1.Nom as depart,
-                                                                region2.Nom as arrivee
-                                                            FROM excursions as e
-                                                            INNER JOIN region region1 ON e.lieu_debut = region1.ID
-                                                            INNER JOIN region region2 ON e.lieu_fin = region2.ID");
+                                        $req = $base->query("SELECT *
+                                                            FROM randonneurs ORDER BY nom");
 
                                         while ($donnees = $req->fetch()){
                                             $id=$donnees['ID'];
 
-
-                                            $request =  $base->prepare("SELECT COUNT(*) FROM planning_guides WHERE excursion_id = :id");
-                                            $request->execute(array('id'=>$id));
-                                            $guides = $request->fetch();
-                                            $request -> closeCursor();
-
-                                            $request =  $base->prepare("SELECT COUNT(*) FROM inscriptions WHERE excursion_id = :id");
-                                            $request->execute(array('id'=>$id));
-                                            $randonneurs = $request->fetch();
-                                            $request -> closeCursor();
                                     ?>
                                         <div class="col-lg-6 col-xl-3">
                                             <div class="card mb-3 main-card">
                                                 <div class="card-body">
                                                     <div class="widget-content-left">
-                                                        <div class="card-title"><?php echo $donnees['nom']; ?><span class="text-primary"><?php echo ' '.$randonneurs[0].'/'.$donnees['nbre_max'].' '; ?><span class="metismenu-icon fas fa-hiking"></span></span></div>
-                                                        <div class="card-subtitle"><?php echo 'du '.dateFR($donnees['date_debut']).' au '.dateFR($donnees['date_fin']); ?></div>
+                                                        <div class="card-title"><?php echo $donnees['nom']; ?><span class="text-primary"><?php echo ' '.$donnees['prenom']; ?></span></div>
+                                                        <div class="card-subtitle"><?php echo 'Tel. '.$donnees['tel']; ?></div>
                                                     </div>
                                                     <div class="collapse" id="<?php echo 'excu-collapse'.$donnees['ID']; ?>">
-                                                        <p><strong>Depart: </strong><span class="text-primary"><?php echo $donnees['depart']; ?></span></p>
-                                                        <p><strong>Arrivée: </strong><span class="text-primary"><?php echo $donnees['arrivee']; ?></span></p>
-                                                        <p><strong>Guides: </strong><span class="text-primary"><?php echo $guides[0]; ?></span></p>
-                                                        <p><strong>Prix: </strong><span class="text-primary"><?php echo $donnees['prix'].' euros'; ?></span></p>
+                                                        <p><strong>Email: </strong><span class="text-primary"><a href="mailto:<?php echo $donnees['mail']; ?>"><?php echo $donnees['mail']; ?></a></span></p>
+                                                        <p><strong>Adresse: </strong><span class="text-primary"><?php echo $donnees['adresse']; ?></span></p>
+                                                        <p><strong>Ville: </strong><span class="text-primary"><?php echo $donnees['ville']; ?></span></p>
+                                                        <p><strong>Code Postal: </strong><span class="text-primary"><?php echo $donnees['codepostal']; ?></span></p>
+                                                        <p><strong>Pays: </strong><span class="text-primary"><?php echo $donnees['pays']; ?></span></p>
                                                     </div>
                                                 </div>
                                                 <div class="card-footer">
