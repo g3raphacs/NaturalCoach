@@ -35,7 +35,7 @@
             <div class="app-header__menu">
                 <span>
 
-                            <a href="index.php" class="mr-3 btn-secondary btn"><span class="fas fa-sign-out-alt"></span></a>
+                            <a href="index.php" class="mr-3 btn-outline-secondary btn"><span class="fas fa-sign-out-alt"></span></a>
 
                 </span>
             </div>
@@ -50,7 +50,7 @@
                                     </div>
                                 </div>
                                 <div class="widget-content-left">
-                                    <a href="index.php" class="mr-3 btn-secondary btn"><span class="fas fa-sign-out-alt"></span></a>
+                                    <a href="index.php" class="mr-3 btn-outline-secondary btn"><span class="fas fa-sign-out-alt"></span></a>
                                 </div>
                             </div>
                         </div>
