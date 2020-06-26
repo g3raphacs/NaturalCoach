@@ -6,12 +6,12 @@ $messages = array();
 
 if (!isset($_POST['username']) || empty($_POST['username'])){
     $ok = false;
-    $messages[] = 'Username cannot be empty!';
+    $messages[] = "L'utilisateur ne peut pas être vide !";
 }
 
 if (!isset($_POST['password']) || empty($_POST['password'])){
     $ok = false;
-    $messages[] = 'Password cannot be empty!';
+    $messages[] = 'Le mot de passe ne peut pas être vide !';
 }
 
 if($ok){
@@ -21,14 +21,14 @@ if($ok){
     while ($donnees = $reponse->fetch()){
         $messages=[];
         if ($_POST['username']===$donnees['user'] && $_POST['password']===$donnees['password']){
-            $messages[] = 'Successful login!';
+            $messages[] = 'Connecté !';
             session_start();
             $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $donnees['user'];
         break;
         }else{
             $ok = false;
-            $messages[] = 'Incorrect username/password!';
+            $messages[] = 'Mauvais utilisateur/mot de passe !';
         }
     } $reponse->closeCursor();
 }
