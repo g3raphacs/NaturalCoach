@@ -23,6 +23,20 @@
             require_once('nav.php');
             ?>
 
+            <?php
+                if (isset($_GET['id'])) {
+                    $ID=(int)$_GET['id'];
+                    var_dump($ID);
+                } else {
+                    header('Location: guides.php');
+                }
+
+                $req = $base->prepare("SELECT * FROM guides as g WHERE g.ID = :ID");
+                $req->execute(array('ID'=>$ID));
+                $donnees = $req->fetch();
+                $req -> closeCursor();
+            ?>
+
             <div class="app-main__outer">
                 <div class="app-main__inner">
                     <!-- Titre<<________________________________________  -->
@@ -33,7 +47,7 @@
                                     <span class="icon-gradient bg-success fas fa-portrait"></span>
                                 </div>
                                 <div>
-                                    Ajouter un guide
+                                    Modifier un guide
                                 </div>
                             </div>
                         </div>
@@ -43,22 +57,22 @@
                     <div class="tab-content">
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                                 <div class="main-card mb-3 card">
-                                    <div class="card-body"><h5 class="card-title">Nouveau guide</h5>
+                                    <div class="card-body"><h5 class="card-title">Editer</h5>
                                         <form class="">
                                                 <div class="form-row">
                                                     <div class="col-md-6">
-                                                        <div class="position-relative form-group"><label for="nom" class="">Nom</label><input name="nom" id="nom" type="text" placeholder="Entrez un nom" class="form-control"></div>
+                                                        <div class="position-relative form-group"><label for="nom" class="">Nom</label><input value="<?php echo $donnees['nom'];?>" name="nom" id="nom" type="text" placeholder="Entrez un nom" class="form-control"></div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div class="position-relative form-group"><label for="prenom" class="">Prénom</label><input name="prenom" id="prenom" type="text" placeholder="Entrez un prénom" class="form-control"></div>
+                                                        <div class="position-relative form-group"><label for="prenom" class="">Prénom</label><input value="<?php echo $donnees['prenom'];?>" name="prenom" id="prenom" type="text" placeholder="Entrez un prénom" class="form-control"></div>
                                                     </div>
                                                 </div>
                                                 <div class="form-row">
                                                     <div class="col-md-6">
-                                                        <div class="position-relative form-group"><label for="tel" class="">Téléphone</label><input name="tel" id="tel" type="phone" placeholder="+33 6 00 00 00 00" class="form-control"></div>
+                                                        <div class="position-relative form-group"><label for="tel" class="">Téléphone</label><input value="<?php echo $donnees['tel'];?>" name="tel" id="tel" type="phone" placeholder="+33 6 00 00 00 00" class="form-control"></div>
                                                     </div>
                                                 </div>
-                                            <button class="mt-2 btn btn-primary">Ajouter</button>
+                                            <button class="mt-2 btn btn-primary">Mettre à jour</button>
                                         </form>
                                     </div>
                                 </div>
