@@ -65,7 +65,7 @@
                                                 </div>
                                             </div>
                                             <div class="card-footer">
-                                                <button class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-edit"></span></button>
+                                                <a href="edit-region.php?id=<?php echo $donnees['ID']; ?>" class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-edit"></span></a>
                                                 <button class="mr-2 btn border-0 btn-outline-danger"><span class="fas fa-minus-circle"></span></i></button>
                                             </div>
                                         </div>
