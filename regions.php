@@ -42,7 +42,7 @@
                     <!-- Search Bar<<________________________________________  -->
                     <div class="tab-content">
                         <form class="">
-                            <div class="position-relative form-group"><input name="address" id="search" placeholder="&#xF002; Search" style="font-family:Arial, Font Awesome\ 5 Free" type="text"class="form-control"></div>
+                            <div class="position-relative form-group"><input name="address" id="search" placeholder="&#xF002; Rechercher" style="font-family:Arial, Font Awesome\ 5 Free" type="text"class="form-control"></div>
                         </form>
                     </div>
                     <!-- Search Bar>>________________________________________  -->
@@ -51,31 +51,26 @@
                     <div class="">
                         <div class="row">
 
-                                    <?php
-
-                                        $req = $base->query("SELECT *
-                                                            FROM region ORDER BY nom");
-
-                                        while ($donnees = $req->fetch()){
-                                            $id=$donnees['ID'];
-
-                                    ?>
-                                        <div class="col-lg-6 col-xl-3">
-                                            <div class="card mb-3 main-card">
-                                                <div class="card-body">
-                                                    <div class="widget-content-left">
-                                                        <div class="card-title"><?php echo $donnees['Nom']; ?></span></div>
-                                                    </div>
-                                                </div>
-                                                <div class="card-footer">
-                                                    <button class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-edit"></span></button>
-                                                    <button class="mr-2 btn border-0 btn-outline-danger"><span class="fas fa-minus-circle"></span></i></button>
+                                <?php
+                                    $req = $base->query("SELECT *
+                                                        FROM region ORDER BY nom");
+                                    while ($donnees = $req->fetch()){
+                                        $id=$donnees['ID'];
+                                ?>
+                                    <div class="col-lg-6 col-xl-3">
+                                        <div class="card mb-3 main-card">
+                                            <div class="card-body">
+                                                <div class="widget-content-left">
+                                                    <div class="card-title"><?php echo $donnees['Nom']; ?></span></div>
                                                 </div>
                                             </div>
+                                            <div class="card-footer">
+                                                <button class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-edit"></span></button>
+                                                <button class="mr-2 btn border-0 btn-outline-danger"><span class="fas fa-minus-circle"></span></i></button>
+                                            </div>
                                         </div>
-                                    <?php } $req->closeCursor(); ?>
-
-
+                                    </div>
+                                <?php } $req->closeCursor(); ?>
                         </div>
                     </div>
 

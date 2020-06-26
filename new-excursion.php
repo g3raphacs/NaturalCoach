@@ -23,6 +23,13 @@
             require_once('nav.php');
             ?>
 
+            <!-- Req Regions  -->
+            <?php
+                $req = $base->query("SELECT * FROM region ORDER BY Nom");
+                $regions = $req->fetchAll();
+                $req -> closeCursor();
+            ?>
+
             <div class="app-main__outer">
                 <div class="app-main__inner">
                     <!-- Titre<<________________________________________  -->
@@ -59,11 +66,11 @@
                                                         <div class="position-relative form-group">
                                                             <label for="lieu_depart" class="">Point de départ</label>
                                                             <select name="lieu_depart" id="lieu_depart" class="form-control" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
-                                                                <option>Lieu1</option>
-                                                                <option>Lieu2</option>
-                                                                <option>Lieu3</option>
-                                                                <option>Lieu4</option>
-                                                                <option>Lieu5</option>
+                                                                <?php 
+                                                                foreach ($regions as $region) {
+                                                                    echo '<option>'.$region['Nom'].'</option>';
+                                                                }
+                                                                ?>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -71,11 +78,11 @@
                                                         <div class="position-relative form-group">
                                                             <label for="lieu_arrivee" class="">Point d'arrivée'</label>
                                                             <select name="lieu_arrivee" id="lieu_arrivee" class="form-control" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
-                                                                <option>Lieu1</option>
-                                                                <option>Lieu2</option>
-                                                                <option>Lieu3</option>
-                                                                <option>Lieu4</option>
-                                                                <option>Lieu5</option>
+                                                            <?php
+                                                                foreach ($regions as $region) {
+                                                                    echo '<option>'.$region['Nom'].'</option>';
+                                                                }
+                                                                ?>
                                                             </select>
                                                         </div>
                                                     </div>

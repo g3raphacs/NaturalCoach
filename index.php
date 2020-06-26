@@ -18,14 +18,14 @@
     }
     ?>
     <div class="form">
-        <h1>CONNECT</h1>
+        <h1>Natural Coach</h1>
         <form id="connect">
             <div>
-                <label for="username">Username</label>
+                <label for="username">Utilisateur</label>
                 <input id="username" type="text" name="username" spellcheck="false">
             </div>
             <div>
-                <label for="password">Password</label>
+                <label for="password">Mot de passe</label>
                 <input id="password" name="password" type="password">
             </div>
 
