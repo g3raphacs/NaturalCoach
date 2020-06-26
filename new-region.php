@@ -12,7 +12,6 @@
     <meta name="msapplication-tap-highlight" content="no">
     <link rel="icon" href="./assets/images/favicon.png" />
     <link rel="stylesheet" href="./main.css">
-    <!-- <link rel="stylesheet" href="css/dashboard.css"> -->
 </head>
 
 <body>
