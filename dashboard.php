@@ -16,7 +16,6 @@
 </head>
 
 <body>
-            <h1>TEst</h1>
             <!-- Include  -->
             <?php
             require_once('scripts/functions.php');
