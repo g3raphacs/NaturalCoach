@@ -23,6 +23,20 @@
             require_once('nav.php');
             ?>
 
+            <?php
+                if (isset($_GET['id'])) {
+                    $ID=(int)$_GET['id'];
+                    var_dump($ID);
+                } else {
+                    header('Location: randonneurs.php');
+                }
+
+                $req = $base->prepare("SELECT * FROM randonneurs as r WHERE r.ID = :ID");
+                $req->execute(array('ID'=>$ID));
+                $donnees = $req->fetch();
+                $req -> closeCursor();
+            ?>
+
             <div class="app-main__outer">
                 <div class="app-main__inner">
                     <!-- Titre<<________________________________________  -->
@@ -47,30 +61,30 @@
                                         <form class="">
                                                 <div class="form-row">
                                                     <div class="col-md-6">
-                                                        <div class="position-relative form-group"><label for="nom" class="">Nom</label><input name="nom" id="nom" type="text" placeholder="Entrez un nom" class="form-control"></div>
+                                                        <div class="position-relative form-group"><label for="nom" class="">Nom</label><input value="<?php echo $donnees['nom'];?>" name="nom" id="nom" type="text" placeholder="Entrez un nom" class="form-control"></div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div class="position-relative form-group"><label for="prenom" class="">Prénom</label><input name="prenom" id="prenom" type="text" placeholder="Entrez un prénom" class="form-control"></div>
+                                                        <div class="position-relative form-group"><label for="prenom" class="">Prénom</label><input value="<?php echo $donnees['prenom'];?>" name="prenom" id="prenom" type="text" placeholder="Entrez un prénom" class="form-control"></div>
                                                     </div>
                                                 </div>
                                                 <div class="form-row">
                                                     <div class="col-md-6">
-                                                        <div class="position-relative form-group"><label for="mail" class="">Email</label><input name="mail" id="mail" type="email" placeholder="Entrez une adresse mail" class="form-control"></div>
+                                                        <div class="position-relative form-group"><label for="mail" class="">Email</label><input value="<?php echo $donnees['mail'];?>" name="mail" id="mail" type="email" placeholder="Entrez une adresse mail" class="form-control"></div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div class="position-relative form-group"><label for="tel" class="">Téléphone</label><input name="tel" id="tel" type="phone" placeholder="+33 6 00 00 00 00" class="form-control"></div>
+                                                        <div class="position-relative form-group"><label for="tel" class="">Téléphone</label><input value="<?php echo $donnees['tel'];?>" name="tel" id="tel" type="phone" placeholder="+33 6 00 00 00 00" class="form-control"></div>
                                                     </div>
                                                 </div>
-                                                <div class="position-relative form-group"><label for="adresse" class="">Adresse</label><input name="adresse" id="adresse" type="text" placeholder="Entrez une adresse" class="form-control"></div>
+                                                <div class="position-relative form-group"><label for="adresse" class="">Adresse</label><input value="<?php echo $donnees['adresse'];?>" name="adresse" id="adresse" type="text" placeholder="Entrez une adresse" class="form-control"></div>
                                                 <div class="form-row">
                                                     <div class="col-md-4">
-                                                        <div class="position-relative form-group"><label for="ville" class="">Ville</label><input name="ville" id="ville" type="text" placeholder="Entrez une ville" class="form-control"></div>
+                                                        <div class="position-relative form-group"><label for="ville" class="">Ville</label><input value="<?php echo $donnees['ville'];?>" name="ville" id="ville" type="text" placeholder="Entrez une ville" class="form-control"></div>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <div class="position-relative form-group"><label for="cp" class="">Code postal</label><input name="cp" id="cp" type="text" placeholder="Entrez un code postal" class="form-control"></div>
+                                                        <div class="position-relative form-group"><label for="cp" class="">Code postal</label><input value="<?php echo $donnees['codepostal'];?>" name="cp" id="cp" type="text" placeholder="Entrez un code postal" class="form-control"></div>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <div class="position-relative form-group"><label for="pays" class="">Pays</label><input name="pays" id="pays" type="text" placeholder="Entrez un pays" class="form-control"></div>
+                                                        <div class="position-relative form-group"><label for="pays" class="">Pays</label><input value="<?php echo $donnees['pays'];?>" name="pays" id="pays" type="text" placeholder="Entrez un pays" class="form-control"></div>
                                                     </div>
                                                 </div>
                                             <button class="mt-2 btn btn-primary">Mettre à jour</button>

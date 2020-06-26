@@ -66,7 +66,7 @@
                                                         <div class="position-relative form-group">
                                                             <label for="lieu_depart" class="">Point de départ</label>
                                                             <select name="lieu_depart" id="lieu_depart" class="form-control" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
-                                                                <?php 
+                                                                <?php
                                                                 foreach ($regions as $region) {
                                                                     echo '<option>'.$region['Nom'].'</option>';
                                                                 }
