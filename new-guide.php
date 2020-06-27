@@ -39,7 +39,7 @@
                     </div>
                     <!-- Titre>>________________________________________  -->
 
-                    <div id="message" class="alert" role="alert" style="display:none;">Message</div>
+                    <div id="message" class="alert alert-success" role="alert" style="display:none;">Message</div>
 
                         <div class="tab-content">
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
@@ -49,17 +49,17 @@
                                                 <div class="form-row">
                                                     <div class="col-md-6">
                                                         <div class="position-relative form-group"><label for="nom" class="">Nom</label><input name="nom" id="nom" type="text" placeholder="Entrez un nom" class="form-control"></div>
-                                                        <div id="msg-nom" class="alert alert-danger" role="alert" style="display:none;">Message</div>
+                                                        <div id="msg1" class="alert alert-danger" role="alert" style="display:none;">Message</div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="position-relative form-group"><label for="prenom" class="">Prénom</label><input name="prenom" id="prenom" type="text" placeholder="Entrez un prénom" class="form-control"></div>
-                                                        <div id="msg-prenom" class="alert alert-danger" role="alert" style="display:none;">Message</div>
+                                                        <div id="msg2" class="alert alert-danger" role="alert" style="display:none;">Message</div>
                                                     </div>
                                                 </div>
                                                 <div class="form-row">
                                                     <div class="col-md-6">
                                                         <div class="position-relative form-group"><label for="tel" class="">Téléphone</label><input name="tel" id="tel" type="phone" placeholder="+33 6 00 00 00 00" class="form-control"></div>
-                                                        <div id="msg-tel" class="alert alert-danger" role="alert" style="display:none;">Message</div>
+                                                        <div id="msg3" class="alert alert-danger" role="alert" style="display:none;">Message</div>
                                                     </div>
                                                 </div>
                                             <button id="new-guide-btn" type="submit" class="mt-2 btn btn-primary">Ajouter</button>
