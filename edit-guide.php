@@ -25,7 +25,6 @@
             <?php
                 if (isset($_GET['id'])) {
                     $ID=(int)$_GET['id'];
-                    var_dump($ID);
                 } else {
                     header('Location: guides.php');
                 }
@@ -53,25 +52,31 @@
                     </div>
                     <!-- Titre>>________________________________________  -->
 
+                    <div id="message" class="alert alert-success" role="alert" style="display:none;">Message</div>
+
                     <div class="tab-content">
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                                 <div class="main-card mb-3 card">
                                     <div class="card-body"><h5 class="card-title">Editer</h5>
-                                        <form class="">
+                                        <form id="new-guide-form" class="">
+                                            <input name="id" type="hidden" value="<?php echo $ID;?>">
                                                 <div class="form-row">
                                                     <div class="col-md-6">
                                                         <div class="position-relative form-group"><label for="nom" class="">Nom</label><input value="<?php echo $donnees['nom'];?>" name="nom" id="nom" type="text" placeholder="Entrez un nom" class="form-control"></div>
+                                                        <div id="msg1" class="alert alert-danger" role="alert" style="display:none;">Message</div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="position-relative form-group"><label for="prenom" class="">Prénom</label><input value="<?php echo $donnees['prenom'];?>" name="prenom" id="prenom" type="text" placeholder="Entrez un prénom" class="form-control"></div>
+                                                        <div id="msg2" class="alert alert-danger" role="alert" style="display:none;">Message</div>
                                                     </div>
                                                 </div>
                                                 <div class="form-row">
                                                     <div class="col-md-6">
                                                         <div class="position-relative form-group"><label for="tel" class="">Téléphone</label><input value="<?php echo $donnees['tel'];?>" name="tel" id="tel" type="phone" placeholder="+33 6 00 00 00 00" class="form-control"></div>
+                                                        <div id="msg3" class="alert alert-danger" role="alert" style="display:none;">Message</div>
                                                     </div>
                                                 </div>
-                                            <button class="mt-2 btn btn-primary">Mettre à jour</button>
+                                            <button id="new-guide-btn" type="submit" class="mt-2 btn btn-primary">Mette à jour</button>
                                         </form>
                                     </div>
                                 </div>
@@ -88,5 +93,6 @@
         </div>
     </div>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
+    <script type="text/javascript" src="scripts/new-guide.js"></script>
 </body>
 </html>
