@@ -38,13 +38,28 @@
                     </div>
                     <!-- Titre>>________________________________________  -->
 
-                    <!-- Search Bar<<________________________________________  -->
-                    <div class="tab-content">
-                        <form class="">
-                            <div class="position-relative form-group"><input name="address" id="search" placeholder="&#xF002; Rechercher" style="font-family:Arial, Font Awesome\ 5 Free" type="text"class="form-control"></div>
-                        </form>
-                    </div>
-                    <!-- Search Bar>>________________________________________  -->
+                    <!-- Search Bar et Pagination<<________________________________________  -->
+                            <div class="row">
+                                <div class="col-lg-10 tab-content">
+                                    <form class="">
+                                        <div class="position-relative form-group"><input name="address" id="search" placeholder="&#xF002; Rechercher" style="font-family:Arial, Font Awesome\ 5 Free" type="text"class="form-control"></div>
+                                    </form>
+                                </div>
+                                <div class="col-lg-2">
+                                    <nav class="" aria-label="Page navigation example">
+                                        <ul class="pagination">
+                                            <li class="page-item active"><a href="javascript:void(0);" class="page-link" aria-label="Previous"><span aria-hidden="true">«</span><span class="sr-only">Previous</span></a></li>
+                                            <li class="page-item"><a href="javascript:void(0);" class="page-link">1</a></li>
+                                            <li class="page-item"><a href="javascript:void(0);" class="page-link">2</a></li>
+                                            <li class="page-item"><a href="javascript:void(0);" class="page-link">3</a></li>
+                                            <li class="page-item"><a href="javascript:void(0);" class="page-link">4</a></li>
+                                            <li class="page-item"><a href="javascript:void(0);" class="page-link">5</a></li>
+                                            <li class="page-item"><a href="javascript:void(0);" class="page-link" aria-label="Next"><span aria-hidden="true">»</span><span class="sr-only">Next</span></a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                    <!-- Search Bar et Pagination>>________________________________________  -->
 
 
                     <div class="">
