@@ -59,7 +59,7 @@
                                     <div class="card-body"><h5 class="card-title">Editer</h5>
                                         <form class="">
                                             <div class="position-relative form-group"><label for="nom" class="">Nom</label><input value="<?php echo $donnees['Nom'];?>" name="nom" id="nom" type="text" placeholder="Entrez un nom" class="form-control"></div>
-                                            <button class="mt-2 btn btn-primary">Mise à jour</button>
+                                            <button class="mt-2 btn btn-primary">Mettre à jour</button>
                                         </form>
                                     </div>
                                 </div>
