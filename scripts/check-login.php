@@ -22,6 +22,7 @@ if($ok){
         $messages=[];
         if ($_POST['username']===$donnees['user'] && $_POST['password']===$donnees['password']){
             $messages[] = 'Connecté !';
+            $ok = true;
             session_start();
             $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $donnees['user'];
