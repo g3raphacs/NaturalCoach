@@ -19,3 +19,5 @@ Avec login de Gestion
 INSERT INTO `guides` (`ID`, `prenom`, `nom`, `tel`) VALUES (NULL, 'John', 'Stockton', '06 22 32 42 52');
 
 DELETE FROM `guides` WHERE `guides`.`ID` = 11
+
+SELECT r.nom, e.nom from randonneurs as r INNER JOIN inscriptions as i ON r.ID = i.randonneur_id INNER JOIN excursions as e ON i.excursion_id = e.ID

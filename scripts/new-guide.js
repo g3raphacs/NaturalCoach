@@ -4,10 +4,9 @@ let msg1= document.getElementById("msg1");
 let msg2= document.getElementById("msg2");
 let msg3= document.getElementById("msg3");
 let inputs= document.getElementsByClassName('form-control');
-console.log(inputs);
 form.addEventListener('submit', (e)=>{
     e.preventDefault();
-
+    console.log(form);
     msg1.style.display='none';
     msg2.style.display='none';
     msg3.style.display='none';
@@ -16,8 +15,10 @@ form.addEventListener('submit', (e)=>{
         .then( res => res.json() ).then( data =>{
             if(data.ok==true){
                 message.innerHTML='<span class="fas fa-check-circle"></span>&nbsp;'+data.message;
-                for(let i=0 ; i<inputs.length ; i++){
-                    inputs[i].value='';
+                if(data.editMode==false){
+                    for(let i=0 ; i<inputs.length ; i++){
+                        inputs[i].value='';
+                    }
                 }
                 message.style.display='block';
                 setTimeout(messageHide, 1500);
