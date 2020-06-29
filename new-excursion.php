@@ -45,19 +45,22 @@
                         </div>
                     </div>
                     <!-- Titre>>________________________________________  -->
-
+                    <div id="message" class="alert alert-success" role="alert" style="display:none;">Message</div>
                     <div class="tab-content">
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                                 <div class="main-card mb-3 card">
                                     <div class="card-body"><h5 class="card-title">Nouvelle Excursion</h5>
-                                        <form class="">
+                                        <form id="form" class="">
                                                 <div class="position-relative form-group"><label for="nom" class="">Nom</label><input name="nom" id="nom" placeholder="Entrez un nom" type="text" class="form-control"></div>
+                                                <div id="msg1" class="alert alert-danger" role="alert" style="display:none;">Message</div>
                                                 <div class="form-row">
                                                     <div class="col-md-6">
                                                         <div class="position-relative form-group"><label for="date_debut" class="">Date de début</label><input name="date_debut" id="date_debut" type="date" class="form-control"></div>
+                                                        <div id="msg2" class="alert alert-danger" role="alert" style="display:none;">Message</div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="position-relative form-group"><label for="date_fin" class="">Date de fin</label><input name="date_fin" id="date_fin" type="date" class="form-control"></div>
+                                                        <div id="msg3" class="alert alert-danger" role="alert" style="display:none;">Message</div>
                                                     </div>
                                                 </div>
                                                 <div class="form-row">
@@ -72,6 +75,7 @@
                                                                 ?>
                                                             </select>
                                                         </div>
+                                                        <div id="msg4" class="alert alert-danger" role="alert" style="display:none;">Message</div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="position-relative form-group">
@@ -84,14 +88,17 @@
                                                                 ?>
                                                             </select>
                                                         </div>
+                                                        <div id="msg5" class="alert alert-danger" role="alert" style="display:none;">Message</div>
                                                     </div>
                                                 </div>
                                                 <div class="form-row">
                                                     <div class="col-md-6">
                                                         <div class="position-relative form-group"><label for="nbre_max" class="">Maximum de Randonneurs</label><input name="nbre_max" id="nbre_max" type="number" class="form-control"></div>
+                                                        <div id="msg6" class="alert alert-danger" role="alert" style="display:none;">Message</div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div class="position-relative form-group"><label for="nbre_max" class="">Prix (euros)</label><input name="nbre_max" id="nbre_max" type="number" step="0.1" class="form-control"></div>
+                                                        <div class="position-relative form-group"><label for="prix" class="">Prix (euros)</label><input name="prix" id="prix" type="number" step="0.1" class="form-control"></div>
+                                                        <div id="msg7" class="alert alert-danger" role="alert" style="display:none;">Message</div>
                                                     </div>
                                                 </div>
                                             <button class="mt-2 btn btn-primary">Créer</button>
@@ -111,5 +118,6 @@
         </div>
     </div>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
+    <script type="text/javascript" src="scripts/new-excursion.js"></script>
 </body>
 </html>
