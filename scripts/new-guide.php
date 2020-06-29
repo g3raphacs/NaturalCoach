@@ -16,6 +16,7 @@ $message='';
 $msg1='';
 $msg2='';
 $msg3='';
+$edit=false;
 
 if($_POST['nom']==''){
     $msg1='Vous devez entrer un nom';
@@ -44,6 +45,7 @@ if($ok){
         ));
         $req -> closeCursor();
         $message='Informations mises à jour';
+        $edit=true;
     }
     else{
         $req = $base->prepare("INSERT INTO `guides` (`ID`, `prenom`, `nom`, `tel`) VALUES (NULL, :prenom, :nom, :tel)");
@@ -62,6 +64,7 @@ if($ok){
 echo json_encode(
     array(
         'ok' => $ok,
+        'editMode' => $edit,
         'message' => $message,
         'msg1' => $msg1,
         'msg2' => $msg2,

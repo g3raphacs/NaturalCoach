@@ -52,13 +52,15 @@
                         </div>
                     </div>
                     <!-- Titre>>________________________________________  -->
-
+                    <div id="message" class="alert alert-success" role="alert" style="display:none;">Message</div>
                     <div class="tab-content">
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                                 <div class="main-card mb-3 card">
                                     <div class="card-body"><h5 class="card-title">Editer</h5>
-                                        <form class="">
+                                        <form id="form" class="">
+                                            <input name="id" type="hidden" value="<?php echo $ID;?>">
                                             <div class="position-relative form-group"><label for="nom" class="">Nom</label><input value="<?php echo $donnees['Nom'];?>" name="nom" id="nom" type="text" placeholder="Entrez un nom" class="form-control"></div>
+                                            <div id="msg1" class="alert alert-danger" role="alert" style="display:none;">Message</div>
                                             <button class="mt-2 btn btn-primary">Mettre à jour</button>
                                         </form>
                                     </div>
@@ -76,5 +78,6 @@
         </div>
     </div>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
+    <script type="text/javascript" src="scripts/new-region.js"></script>
 </body>
 </html>
