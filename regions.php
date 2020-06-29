@@ -71,16 +71,20 @@
                                     while ($donnees = $req->fetch()){
                                         $id=$donnees['ID'];
                                 ?>
-                                    <div class="col-lg-6 col-xl-3">
+                                    <div id="<?php echo $id; ?>" class="elementBox col-lg-6 col-xl-3">
                                         <div class="card mb-3 main-card">
                                             <div class="card-body">
                                                 <div class="widget-content-left">
-                                                    <div class="card-title"><?php echo $donnees['Nom']; ?></span></div>
+                                                    <div class="card-title"><?php echo $donnees['Nom'];?></span></div>
+                                                    <form id="form">
+                                                        <input name="id" type="hidden" value="<?php echo $id;?>">
+                                                        <div class="msgDel alert alert-danger" role="alert" style="display:none">Supprimer?<button type="submit" class="ml-2 mb-1 btn border-0 btn-outline-danger">OUI</button><a href="#" class="ml-2 mb-1 btn border-0 btn-outline-danger">NON</a></div>
+                                                    </form>
                                                 </div>
                                             </div>
                                             <div class="card-footer">
-                                                <a href="edit-region.php?id=<?php echo $donnees['ID']; ?>" class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-edit"></span></a>
-                                                <button class="mr-2 btn border-0 btn-outline-danger"><span class="fas fa-minus-circle"></span></i></button>
+                                                <a href="edit-region.php?id=<?php echo $id;?>" class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-edit"></span></a>
+                                                <button class="mr-2 btn border-0 btn-outline-danger" onclick="clickDelete(<?php echo $id;?>)"><span class="fas fa-minus-circle"></span></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -98,5 +102,6 @@
         </div>
     </div>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
+    <script type="text/javascript" src="scripts/del-region.js"></script>
 </body>
 </html>
