@@ -26,7 +26,6 @@
             <?php
                 if (isset($_GET['id'])) {
                     $ID=(int)$_GET['id'];
-                    var_dump($ID);
                 } else {
                     header('Location: dashboard.php');
                 }
