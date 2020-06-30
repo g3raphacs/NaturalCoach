@@ -23,10 +23,6 @@ function initElements(){
         newElement.input = elementList[i].querySelector("input");
         elementObjects.push(newElement);
     }
-
-    for (let i = 0; i < elementObjects.length; i++) {
-        console.log(elementObjects[i].input.value);
-    }
 }
 
 function showDelMsg(ID){
