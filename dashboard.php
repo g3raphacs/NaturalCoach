@@ -17,6 +17,12 @@
 <body>
             <!-- Include  -->
             <?php
+            // DEBUG_________________________________________________________________________________________________________
+                //afficher les erreurs PHP
+                error_reporting(E_ALL);
+                ini_set("display_errors", 1);
+            // ______________________________________________________________________________________________________________
+
             require_once('scripts/functions.php');
             require_once('nav.php');
             ?>
@@ -70,6 +76,15 @@
                                         $regions = $req->fetchAll();
                                         $req -> closeCursor();
 
+                                        $req = $base->prepare("UPDATE `excursions` SET `lieu_debut` = :region WHERE `excursions`.`lieu_debut` IS NULL");
+                                            $req->execute(array(
+                                            'region'=> $regions[0]['ID']
+                                            ));
+
+                                        $req = $base->prepare("UPDATE `excursions` SET `lieu_fin` = :region WHERE `excursions`.`lieu_fin` IS NULL");
+                                            $req->execute(array(
+                                            'region'=> $regions[0]['ID']
+                                            ));
 
                                         $req = $base->query("SELECT
                                                                 e.ID,

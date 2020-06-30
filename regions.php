@@ -63,8 +63,8 @@
 
 
                     <div class="">
+                    <div id="message" class="alert alert-success" role="alert" style="display:none;">Message</div>
                         <div class="row">
-
                                 <?php
                                     $req = $base->query("SELECT *
                                                         FROM region ORDER BY nom");
@@ -76,10 +76,8 @@
                                             <div class="card-body">
                                                 <div class="widget-content-left">
                                                     <div class="card-title"><?php echo $donnees['Nom'];?></span></div>
-                                                    <form id="form">
                                                         <input name="id" type="hidden" value="<?php echo $id;?>">
-                                                        <div class="msgDel alert alert-danger" role="alert" style="display:none">Supprimer?<button type="submit" class="ml-2 mb-1 btn border-0 btn-outline-danger">OUI</button><a href="#" class="ml-2 mb-1 btn border-0 btn-outline-danger">NON</a></div>
-                                                    </form>
+                                                        <div class="msgDel alert alert-danger" role="alert" style="display:none">Supprimer?<button class="ml-2 mb-1 btn border-0 btn-outline-danger" onclick="Delete(<?php echo $id;?>)">OUI</button><a href="#" class="ml-2 mb-1 btn border-0 btn-outline-danger" onclick="hideDelMsg()">NON</a></div>
                                                 </div>
                                             </div>
                                             <div class="card-footer">
