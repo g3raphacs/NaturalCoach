@@ -50,7 +50,7 @@ function Delete(ID){
     const formData = new FormData();
     formData.append('id', JSON.stringify(ID));
 
-    fetch( 'scripts/del-region.php', { method : "post" , body : formData } )
+    fetch( 'scripts/del-guide.php', { method : "post" , body : formData } )
         .then( res => res.json() ).then( data =>{
             message.innerHTML='<span class="fas fa-check-circle"></span>&nbsp;'+data.message;
             message.style.display='block';

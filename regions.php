@@ -71,7 +71,7 @@
                                     while ($donnees = $req->fetch()){
                                         $id=$donnees['ID'];
                                 ?>
-                                    <div id="<?php echo $id; ?>" class="elementBox col-lg-6 col-xl-3">
+                                    <div class="elementBox col-lg-6 col-xl-3">
                                         <div class="card mb-3 main-card">
                                             <div class="card-body">
                                                 <div class="widget-content-left">
@@ -82,7 +82,7 @@
                                             </div>
                                             <div class="card-footer">
                                                 <a href="edit-region.php?id=<?php echo $id;?>" class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-edit"></span></a>
-                                                <button class="mr-2 btn border-0 btn-outline-danger" onclick="clickDelete(<?php echo $id;?>)"><span class="fas fa-minus-circle"></span></i></button>
+                                                <button class="mr-2 btn border-0 btn-outline-danger" onclick="clickDelete(<?php echo $id;?>)"><span class="fas fa-minus-circle"></span></button>
                                             </div>
                                         </div>
                                     </div>
