@@ -69,6 +69,7 @@
 
 
                     <div class="">
+                    <div id="message" class="alert alert-success" role="alert" style="display:none;">Message</div>
                         <div class="row">
 
                                     <?php
@@ -113,7 +114,7 @@
                                             $randonneurs = $request->fetch();
                                             $request -> closeCursor();
                                     ?>
-                                        <div class="col-lg-6 col-xl-3">
+                                        <div class="elementBox col-lg-6 col-xl-3">
                                             <div class="card mb-3 main-card">
                                                 <div class="card-body">
                                                     <div class="widget-content-left">
@@ -126,11 +127,13 @@
                                                         <p><strong>Arrivée: </strong><span class="text-primary"><?php echo $donnees['arrivee']; ?></span></p>
                                                         <p><strong>Prix: </strong><span class="text-primary"><?php echo $donnees['prix'].' euros'; ?></span></p>
                                                     </div>
+                                                    <input name="id" type="hidden" value="<?php echo $id;?>">
+                                                    <div class="msgDel alert alert-secondary" role="alert" style="display:none">Supprimer?<button class="ml-2 mb-1 btn border-0 btn-outline-success" onclick="Delete(<?php echo $id;?>)">OUI</button><a href="#" class="ml-2 mb-1 btn border-0 btn-outline-danger" onclick="hideDelMsg()">NON</a></div>
                                                 </div>
                                                 <div class="card-footer">
                                                     <button type="button" data-toggle="collapse" href="<?php echo '#excu-collapse'.$donnees['ID']; ?>" class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-eye"></span></button>
                                                     <a href="edit-excursion.php?id=<?php echo $donnees['ID']; ?>" class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-edit"></span></a>
-                                                    <button class="mr-2 btn border-0 btn-outline-danger"><span class="fas fa-minus-circle"></span></i></button>
+                                                    <button class="mr-2 btn border-0 btn-outline-danger" onclick="clickDelete(<?php echo $id;?>)"><span class="fas fa-minus-circle"></span></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -150,5 +153,6 @@
         </div>
     </div>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
+    <script type="text/javascript" src="scripts/del-excursion.js"></script>
 </body>
 </html>
