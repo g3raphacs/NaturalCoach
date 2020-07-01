@@ -19,6 +19,12 @@
             <?php
             require_once('scripts/functions.php');
             require_once('nav.php');
+
+            if (isset($_GET['id'])) {
+                $ID=(int)$_GET['id'];
+            } else {
+                header('Location: dashboard.php');
+            }
             ?>
 
             <div class="app-main__outer">
@@ -31,7 +37,7 @@
                                     <span class="icon-gradient bg-success fas fa-portrait"></span>
                                 </div>
                                 <div>
-                                    Gestion des guides
+                                    Inscrire un guide
                                 </div>
                             </div>
                         </div>
@@ -83,11 +89,10 @@
                                                         <div class="card-subtitle"><?php echo 'Tel. '.$donnees['tel']; ?></div>
                                                     </div>
                                                     <input name="id" type="hidden" value="<?php echo $id;?>">
-                                                    <div class="msgDel alert alert-secondary" role="alert" style="display:none"><strong>Supprimer?</strong><button class="ml-5 mb-1 btn border-0 btn-danger font-weight-bold" onclick="Delete(<?php echo $id;?>)">OUI</button><a href="#" class="ml-2 mb-1 btn border-0 btn-secondary font-weight-bold" onclick="hideDelMsg()">NON</a></div>
+                                                    <div class="msgInsc alert alert-secondary" role="alert" style="display:none"><strong>Inscrire ?</strong><button class="ml-5 mb-1 btn border-0 btn-success font-weight-bold" onclick="Inscription(<?php echo $ID.','.$id;?>)">OUI</button><a href="#" class="ml-2 mb-1 btn border-0 btn-secondary font-weight-bold" onclick="hideInscMsg()">NON</a></div>
                                                 </div>
                                                 <div class="card-footer">
-                                                    <a href="edit-guide.php?id=<?php echo $donnees['ID']; ?>" class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-edit"></span></a>
-                                                    <button class="mr-2 btn border-0 btn-outline-danger" onclick="clickDelete(<?php echo $id;?>)"><span class="fas fa-minus-circle"></span></button>
+                                                    <button class="mr-2 btn border-0 btn-outline-success" onclick="clickInscription(<?php echo $id;?>)"><span class="fas fa-user-plus mr-2"></span><strong>Inscrire</strong></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -107,6 +112,6 @@
         </div>
     </div>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
-    <script type="text/javascript" src="scripts/del-guide.js"></script>
+    <script type="text/javascript" src="scripts/inscription-guide.js"></script>
 </body>
 </html>
