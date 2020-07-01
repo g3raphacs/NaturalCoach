@@ -95,12 +95,12 @@
                                                                 <div class="card-title"><?php echo $donnees['nom']; ?><span class="text-primary"><?php echo ' '.$donnees['prenom']; ?></span></div>
                                                                 <div class="card-subtitle"><?php echo 'Tel. '.$donnees['tel']; ?></div>
                                                             </div>
-                                                            <input name="id" type="hidden" value="<?php echo $id;?>">
-                                                            <div class="msgDel alert alert-secondary" role="alert" style="display:none"><strong>Désinscription ?</strong><button class="ml-5 mb-1 btn border-0 btn-danger font-weight-bold" onclick="Delete(<?php echo $id;?>)">OUI</button><a href="#" class="ml-2 mb-1 btn border-0 btn-secondary font-weight-bold" onclick="hideDelMsg()">NON</a></div>
+                                                            <input name="id" type="hidden" value="<?php echo $donnees['ID'];?>">
+                                                            <div class="msgDel alert alert-secondary" role="alert" style="display:none"><strong>Désinscrire ?</strong><button class="ml-5 mb-1 btn border-0 btn-danger font-weight-bold" onclick="DeleteGuide(<?php echo $ID.','.$donnees['ID'];?>)">OUI</button><a href="#" class="ml-2 mb-1 btn border-0 btn-secondary font-weight-bold" onclick="hideDelMsg()">NON</a></div>
                                                         </div>
                                                     <div class="card-footer">
                                                         <a href="edit-guide.php?id=<?php echo $donnees['ID']; ?>" class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-edit"></span></a>
-                                                        <button class="mr-2 btn border-0 btn-outline-danger" onclick="clickDelete(<?php echo $id;?>)"><span class="fas fa-times"></span></button>
+                                                        <button class="mr-2 btn border-0 btn-outline-danger" onclick="clickDelete(<?php echo $donnees['ID'];?>)"><span class="fas fa-times"></span></button>
                                                     </div>
                                                 </div>
                                         </div>
@@ -149,13 +149,13 @@
                                                                     <p><strong>Code Postal: </strong><span class="text-primary"><?php echo $donnees['codepostal']; ?></span></p>
                                                                     <p><strong>Pays: </strong><span class="text-primary"><?php echo $donnees['pays']; ?></span></p>
                                                                 </div>
-                                                                <input name="id" type="hidden" value="<?php echo $id;?>">
-                                                                <div class="msgDel alert alert-secondary" role="alert" style="display:none"><strong>Désinscription ?</strong><button class="ml-5 mb-1 btn border-0 btn-danger font-weight-bold" onclick="Delete(<?php echo $id;?>)">OUI</button><a href="#" class="ml-2 mb-1 btn border-0 btn-secondary font-weight-bold" onclick="hideDelMsg()">NON</a></div>
+                                                                <input name="id" type="hidden" value="<?php echo $donnees['ID'];?>">
+                                                                <div class="msgDel alert alert-secondary" role="alert" style="display:none"><strong>Désinscrire ?</strong><button class="ml-5 mb-1 btn border-0 btn-danger font-weight-bold" onclick="DeleteRando(<?php echo $ID.','.$donnees['ID'];?>)">OUI</button><a href="#" class="ml-2 mb-1 btn border-0 btn-secondary font-weight-bold" onclick="hideDelMsg()">NON</a></div>
                                                             </div>
                                                             <div class="card-footer">
                                                                 <button type="button" data-toggle="collapse" href="<?php echo '#excu-collapse'.$donnees['ID']; ?>" class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-eye"></span></button>
                                                                 <a href="edit-randonneur.php?id=<?php echo $donnees['ID']; ?>" class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-edit"></span></a>
-                                                                <button class="mr-2 btn border-0 btn-outline-danger" onclick="clickDelete(<?php echo $id;?>)"><span class="fas fa-times"></span></button>
+                                                                <button class="mr-2 btn border-0 btn-outline-danger" onclick="clickDelete(<?php echo $donnees['ID'];?>)"><span class="fas fa-times"></span></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -179,6 +179,6 @@
         </div>
     </div>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
-    <script type="text/javascript" src="scripts/new-region.js"></script>
+    <script type="text/javascript" src="scripts/del-inscrit.js"></script>
 </body>
 </html>
