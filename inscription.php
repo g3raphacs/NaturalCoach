@@ -81,7 +81,8 @@
                                                                         guides.tel as tel
                                                                     FROM planning_guides as p
                                                                     INNER JOIN guides ON p.guide_id = guides.ID
-                                                                    WHERE p.excursion_id = :id");
+                                                                    WHERE p.excursion_id = :id
+                                                                    ORDER BY nom");
                                                 $req->execute(array('id'=>$ID));
 
                                                 while ($donnees = $req->fetch()){
@@ -127,7 +128,8 @@
                                                                         randonneurs.pays as pays
                                                                     FROM inscriptions as i
                                                                     INNER JOIN randonneurs ON i.randonneur_id = randonneurs.ID
-                                                                    WHERE i.excursion_id = :id");
+                                                                    WHERE i.excursion_id = :id
+                                                                    ORDER BY nom");
                                                 $req->execute(array('id'=>$ID));
 
                                                 while ($donnees = $req->fetch()){

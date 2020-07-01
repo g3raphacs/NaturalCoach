@@ -25,6 +25,12 @@
             } else {
                 header('Location: dashboard.php');
             }
+
+            $req = $base->prepare("SELECT `nom` FROM excursions WHERE excursions.ID = :ID");
+                $req->execute(array('ID'=>$ID));
+                $excursion = $req->fetch();
+                $titre = $excursion['nom'];
+                $req -> closeCursor();
             ?>
 
             <div class="app-main__outer">
@@ -37,7 +43,7 @@
                                     <span class="icon-gradient bg-success fas fa-portrait"></span>
                                 </div>
                                 <div>
-                                    Inscrire un guide
+                                    <?php echo 'Inscrire un guide à <strong>'.$titre.'</strong>'; ?>
                                 </div>
                             </div>
                         </div>
