@@ -29,11 +29,22 @@
                     header('Location: dashboard.php');
                 }
 
-                $req = $base->prepare("SELECT `nom` FROM excursions WHERE excursions.ID = :ID");
+                $req = $base->prepare("SELECT `nom`, `nbre_max` FROM excursions WHERE excursions.ID = :ID");
                 $req->execute(array('ID'=>$ID));
                 $excursion = $req->fetch();
-                $titre = $excursion[0];
+                $titre = $excursion['nom'];
+                $nbreMax = $excursion['nbre_max'];
                 $req -> closeCursor();
+
+                $request =  $base->prepare("SELECT COUNT(*) FROM planning_guides WHERE excursion_id = :id");
+                $request->execute(array('id'=>$ID));
+                $guides = $request->fetch();
+                $request -> closeCursor();
+
+                $request =  $base->prepare("SELECT COUNT(*) FROM inscriptions WHERE excursion_id = :id");
+                $request->execute(array('id'=>$ID));
+                $randonneurs = $request->fetch();
+                $request -> closeCursor();
             ?>
 
             <div class="app-main__outer">
@@ -52,21 +63,108 @@
                         </div>
                     </div>
                     <!-- Titre>>________________________________________  -->
-                    <div id="message" class="alert alert-success" role="alert" style="display:none;">Message</div>
-                    <div class="tab-content">
+                        <div id="message" class="alert alert-success" role="alert" style="display:none;">Message</div>
+                        <div class="tab-content">
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
-                                <div class="main-card mb-3 card">
-                                    <div class="card-body"><h5 class="card-title">Editer</h5>
-                                        <form id="form" class="">
-                                            <input name="id" type="hidden" value="<?php echo $ID;?>">
-                                            <div class="position-relative form-group"><label for="nom" class="">Nom</label><input value="<?php echo $donnees['Nom'];?>" name="nom" id="nom" type="text" placeholder="Entrez un nom" class="form-control"></div>
-                                            <div id="msg1" class="alert alert-danger" role="alert" style="display:none;">Message</div>
-                                            <button class="mt-2 btn btn-primary">Mettre à jour</button>
-                                        </form>
+                                <div class="main-card mb-3 ">
+                                    <div class="card-body"><h5 class="card-title"> <span class="metismenu-icon fas fa-portrait mr-2"></span>Guides participant à l'excursion </h5>
+                                    <a href="inscription_guide.php?id=<?php echo $donnees['ID']; ?>"><button class="mr-6 ml-6 mb-2 btn-transition btn btn-primary"><strong>Inscrire un guide &nbsp;</strong>&nbsp;<span class="ml-2 metismenu-icon fas fa-portrait"><?php echo ' '.$guides[0].' '; ?></span></button></a>
+                                        <div class="row">
+
+                                            <?php
+                                                $req = $base->prepare("SELECT
+                                                                        p.ID as planning_ID,
+                                                                        guides.ID as ID,
+                                                                        guides.nom as nom,
+                                                                        guides.prenom as prenom,
+                                                                        guides.tel as tel
+                                                                    FROM planning_guides as p
+                                                                    INNER JOIN guides ON p.guide_id = guides.ID
+                                                                    WHERE p.excursion_id = :id");
+                                                $req->execute(array('id'=>$ID));
+
+                                                while ($donnees = $req->fetch()){
+
+                                            ?>
+                                                <div class="elementBox col-lg-6 col-xl-3">
+                                                    <div class="card mb-3 main-card">
+                                                        <div class="card-body">
+                                                            <div class="widget-content-left">
+                                                                <div class="card-title"><?php echo $donnees['nom']; ?><span class="text-primary"><?php echo ' '.$donnees['prenom']; ?></span></div>
+                                                                <div class="card-subtitle"><?php echo 'Tel. '.$donnees['tel']; ?></div>
+                                                            </div>
+                                                            <input name="id" type="hidden" value="<?php echo $id;?>">
+                                                            <div class="msgDel alert alert-secondary" role="alert" style="display:none"><strong>Désinscription ?</strong><button class="ml-5 mb-1 btn border-0 btn-danger font-weight-bold" onclick="Delete(<?php echo $id;?>)">OUI</button><a href="#" class="ml-2 mb-1 btn border-0 btn-secondary font-weight-bold" onclick="hideDelMsg()">NON</a></div>
+                                                        </div>
+                                                    <div class="card-footer">
+                                                        <a href="edit-guide.php?id=<?php echo $donnees['ID']; ?>" class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-edit"></span></a>
+                                                        <button class="mr-2 btn border-0 btn-outline-danger" onclick="clickDelete(<?php echo $id;?>)"><span class="fas fa-times"></span></button>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                            <?php } $req->closeCursor(); ?>
+
                                     </div>
                                 </div>
+
+                                <div class="main-card mb-3 ">
+                                    <div class="card-body"><h5 class="card-title"> <span class="metismenu-icon fas fa-portrait mr-2"></span>Randonneurs participant à l'excursion </h5>
+                                    <a href="inscription_guide.php?id=<?php echo $donnees['ID']; ?>"><button class="mr-6 ml-6 mb-2 btn-transition btn btn-primary"><strong>Inscrire un randonneur &nbsp;</strong>&nbsp;<span class="ml-2 metismenu-icon fas fa-hiking"><?php echo ' '.$randonneurs[0].'/'.$nbreMax.' '; ?></span></button></a>
+                                        <div class="row">
+
+                                            <?php
+                                                $req = $base->prepare("SELECT
+                                                                        i.ID as inscription_ID,
+                                                                        randonneurs.ID as ID,
+                                                                        randonneurs.nom as nom,
+                                                                        randonneurs.prenom as prenom,
+                                                                        randonneurs.tel as tel,
+                                                                        randonneurs.mail as mail,
+                                                                        randonneurs.adresse as adresse,
+                                                                        randonneurs.ville as ville,
+                                                                        randonneurs.codepostal as codepostal,
+                                                                        randonneurs.pays as pays
+                                                                    FROM inscriptions as i
+                                                                    INNER JOIN randonneurs ON i.randonneur_id = randonneurs.ID
+                                                                    WHERE i.excursion_id = :id");
+                                                $req->execute(array('id'=>$ID));
+
+                                                while ($donnees = $req->fetch()){
+
+                                                    ?>
+                                                    <div class="elementBox col-lg-6 col-xl-3">
+                                                        <div class="card mb-3 main-card">
+                                                            <div class="card-body">
+                                                                <div class="widget-content-left">
+                                                                    <div class="card-title"><?php echo $donnees['nom']; ?><span class="text-primary"><?php echo ' '.$donnees['prenom']; ?></span></div>
+                                                                    <div class="card-subtitle"><?php echo 'Tel. '.$donnees['tel']; ?></div>
+                                                                </div>
+                                                                <div class="collapse" id="<?php echo 'excu-collapse'.$donnees['ID']; ?>">
+                                                                    <p><strong>Email: </strong><span class="text-primary"><a href="mailto:<?php echo $donnees['mail']; ?>"><?php echo $donnees['mail']; ?></a></span></p>
+                                                                    <p><strong>Adresse: </strong><span class="text-primary"><?php echo $donnees['adresse']; ?></span></p>
+                                                                    <p><strong>Ville: </strong><span class="text-primary"><?php echo $donnees['ville']; ?></span></p>
+                                                                    <p><strong>Code Postal: </strong><span class="text-primary"><?php echo $donnees['codepostal']; ?></span></p>
+                                                                    <p><strong>Pays: </strong><span class="text-primary"><?php echo $donnees['pays']; ?></span></p>
+                                                                </div>
+                                                                <input name="id" type="hidden" value="<?php echo $id;?>">
+                                                                <div class="msgDel alert alert-secondary" role="alert" style="display:none"><strong>Désinscription ?</strong><button class="ml-5 mb-1 btn border-0 btn-danger font-weight-bold" onclick="Delete(<?php echo $id;?>)">OUI</button><a href="#" class="ml-2 mb-1 btn border-0 btn-secondary font-weight-bold" onclick="hideDelMsg()">NON</a></div>
+                                                            </div>
+                                                            <div class="card-footer">
+                                                                <button type="button" data-toggle="collapse" href="<?php echo '#excu-collapse'.$donnees['ID']; ?>" class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-eye"></span></button>
+                                                                <a href="edit-randonneur.php?id=<?php echo $donnees['ID']; ?>" class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-edit"></span></a>
+                                                                <button class="mr-2 btn border-0 btn-outline-danger" onclick="clickDelete(<?php echo $id;?>)"><span class="fas fa-times"></span></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <?php } $req->closeCursor(); ?>
+
+                                    </div>
+                                </div>
+
+
                             </div>
                         </div>
+                    </div>
 
 
 

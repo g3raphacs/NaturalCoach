@@ -120,7 +120,7 @@
                                                     <div class="widget-content-left">
                                                         <div class="card-title"><?php echo $donnees['nom']; ?></div>
                                                         <div class="card-subtitle"><?php echo 'du '.dateFR($donnees['date_debut']).' au '.dateFR($donnees['date_fin']); ?></div>
-                                                        <a href="inscription.php?id=<?php echo $donnees['ID']; ?>"><button class="mr-6 ml-6 mb-2 btn-transition btn btn-outline-primary">Inscriptions &nbsp;<span class="metismenu-icon fas fa-hiking"><?php echo ' '.$randonneurs[0].'/'.$donnees['nbre_max'].' '; ?>&nbsp;<span class="metismenu-icon fas fa-portrait"><?php echo ' '.$guides[0].' '; ?></button></a>
+                                                        <a href="inscription.php?id=<?php echo $donnees['ID']; ?>"><button class="mr-6 ml-6 mb-2 btn-transition btn btn-primary"><strong>Inscriptions &nbsp;</strong><span class="ml-2 metismenu-icon fas fa-hiking"><?php echo ' '.$randonneurs[0].'/'.$donnees['nbre_max'].' '; ?></span>&nbsp;<span class="ml-2 metismenu-icon fas fa-portrait"><?php echo ' '.$guides[0].' '; ?></span></button></a>
                                                     </div>
                                                     <div class="collapse" id="<?php echo 'excu-collapse'.$donnees['ID']; ?>">
                                                         <p><strong>Depart: </strong><span class="text-primary"><?php echo $donnees['depart']; ?></span></p>
@@ -133,7 +133,7 @@
                                                 <div class="card-footer">
                                                     <button type="button" data-toggle="collapse" href="<?php echo '#excu-collapse'.$donnees['ID']; ?>" class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-eye"></span></button>
                                                     <a href="edit-excursion.php?id=<?php echo $donnees['ID']; ?>" class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-edit"></span></a>
-                                                    <button class="mr-2 btn border-0 btn-outline-danger" onclick="clickDelete(<?php echo $id;?>)"><span class="fas fa-minus-circle"></span></button>
+                                                    <button class="mr-2 btn border-0 btn-outline-danger" onclick="clickDelete(<?php echo $id;?>)"><span class="fas fa-times-circle"></span></button>
                                                 </div>
                                             </div>
                                         </div>

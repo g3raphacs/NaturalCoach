@@ -82,7 +82,7 @@
                                             </div>
                                             <div class="card-footer">
                                                 <a href="edit-region.php?id=<?php echo $id;?>" class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-edit"></span></a>
-                                                <button class="mr-2 btn border-0 btn-outline-danger" onclick="clickDelete(<?php echo $id;?>)"><span class="fas fa-minus-circle"></span></button>
+                                                <button class="mr-2 btn border-0 btn-outline-danger" onclick="clickDelete(<?php echo $id;?>)"><span class="fas fa-times-circle"></span></button>
                                             </div>
                                         </div>
                                     </div>
