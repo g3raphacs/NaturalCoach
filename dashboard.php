@@ -128,7 +128,7 @@
                                                         <p><strong>Prix: </strong><span class="text-primary"><?php echo $donnees['prix'].' euros'; ?></span></p>
                                                     </div>
                                                     <input name="id" type="hidden" value="<?php echo $id;?>">
-                                                    <div class="msgDel alert alert-secondary" role="alert" style="display:none">Supprimer?<button class="ml-5 mb-1 btn border-0 btn-outline-success font-weight-bold" onclick="Delete(<?php echo $id;?>)">OUI</button><a href="#" class="ml-2 mb-1 btn border-0 btn-outline-danger font-weight-bold" onclick="hideDelMsg()">NON</a></div>
+                                                    <div class="msgDel alert alert-secondary" role="alert" style="display:none"><strong>Supprimer?</strong><button class="ml-5 mb-1 btn border-0 btn-danger font-weight-bold" onclick="Delete(<?php echo $id;?>)">OUI</button><a href="#" class="ml-2 mb-1 btn border-0 btn-secondary font-weight-bold" onclick="hideDelMsg()">NON</a></div>
                                                 </div>
                                                 <div class="card-footer">
                                                     <button type="button" data-toggle="collapse" href="<?php echo '#excu-collapse'.$donnees['ID']; ?>" class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-eye"></span></button>
