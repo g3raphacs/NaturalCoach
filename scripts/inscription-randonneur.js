@@ -41,25 +41,20 @@ function hideInscMsg(){
     }
 }
 
-function Inscription(excursion,guide){
+function Inscription(excursion,randonneur){
 
     const formData = new FormData();
     formData.append('id-excursion', JSON.stringify(excursion));
-    formData.append('id-randonneur', JSON.stringify(guide));
+    formData.append('id-randonneur', JSON.stringify(randonneur));
 
     fetch( 'scripts/inscription-randonneur.php', { method : "post" , body : formData } )
         .then( res => res.json() ).then( data =>{
             message.innerHTML='<span class="fas fa-check-circle"></span>&nbsp;'+data.message;
             message.style.display='block';
             setTimeout(messageHide, 1500);
-        });
 
-    for (let i = 0; i < elementObjects.length; i++) {
-        if(elementObjects[i].input.value==ID){
-            let obj = elementObjects[i].box;
-            obj.remove();
-        }
-    }
+            hideInscMsg()
+        });
 }
 
 function messageHide() {

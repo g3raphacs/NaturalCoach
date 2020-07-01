@@ -52,14 +52,8 @@ function Inscription(excursion,guide){
             message.innerHTML='<span class="fas fa-check-circle"></span>&nbsp;'+data.message;
             message.style.display='block';
             setTimeout(messageHide, 1500);
+            hideInscMsg()
         });
-
-    for (let i = 0; i < elementObjects.length; i++) {
-        if(elementObjects[i].input.value==ID){
-            let obj = elementObjects[i].box;
-            obj.remove();
-        }
-    }
 }
 
 function messageHide() {
