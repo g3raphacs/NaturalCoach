@@ -104,7 +104,7 @@
                                                     <div class="widget-content-left">
                                                         <div class="card-title"><?php echo $donnees['nom']; ?></div>
                                                         <div class="card-subtitle"><?php echo 'du '.dateFR($donnees['date_debut']).' au '.dateFR($donnees['date_fin']); ?></div>
-                                                        <a href="inscriptions.php?id=<?php echo $donnees['ID']; ?>"><button class="mr-6 ml-6 mb-2 btn-transition btn btn-outline-primary">Inscriptions &nbsp;<span class="metismenu-icon fas fa-hiking"><?php echo ' '.$randonneurs[0].'/'.$donnees['nbre_max'].' '; ?>&nbsp;<span class="metismenu-icon fas fa-portrait"><?php echo ' '.$guides[0].' '; ?></button></a>
+                                                        <a href="inscription.php?id=<?php echo $donnees['ID']; ?>"><button class="mr-6 ml-6 mb-2 btn-transition btn btn-outline-primary">Inscriptions &nbsp;<span class="metismenu-icon fas fa-hiking"><?php echo ' '.$randonneurs[0].'/'.$donnees['nbre_max'].' '; ?>&nbsp;<span class="metismenu-icon fas fa-portrait"><?php echo ' '.$guides[0].' '; ?></button></a>
                                                     </div>
                                                     <div class="collapse" id="<?php echo 'excu-collapse'.$donnees['ID']; ?>">
                                                         <p><strong>Depart: </strong><span class="text-primary"><?php echo $donnees['depart']; ?></span></p>
