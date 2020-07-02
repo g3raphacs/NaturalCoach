@@ -35,12 +35,7 @@
                 $titre = $excursion['nom'];
                 $nbreMax = (int)$excursion['nbre_max'];
                 $req -> closeCursor();
-
-                $request =  $base->prepare("SELECT COUNT(*) FROM planning_guides WHERE excursion_id = :id");
-                $request->execute(array('id'=>$ID));
-                $guides = $request->fetch();
-                $request -> closeCursor();
-
+            
                 $request =  $base->prepare("SELECT COUNT(*) FROM inscriptions WHERE excursion_id = :id");
                 $request->execute(array('id'=>$ID));
                 $randonneurs = $request->fetch();
