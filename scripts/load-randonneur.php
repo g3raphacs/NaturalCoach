@@ -16,7 +16,7 @@
     if(isset($_POST['search']) && isset($_POST['page']) && isset($_POST['maxBricks'])){
             $maxBricks=(int)$_POST['maxBricks'];
             $page=(int)$_POST['page'];
-            $pageStart=(($page-1)*$maxBricks);
+            $pageStart=($page-1)*$maxBricks;
 
             $search = "%" . $_POST['search'] . "%";
             $req = $base->prepare("SELECT *
