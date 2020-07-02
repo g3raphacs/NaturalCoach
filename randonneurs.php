@@ -64,43 +64,9 @@
 
                     <div class="">
                     <div id="message" class="alert alert-success" role="alert" style="display:none;">Message</div>
-                        <div class="row">
+                        <div id="contentBox" class="row">
 
-                                    <?php
-
-                                        $req = $base->query("SELECT *
-                                                            FROM randonneurs ORDER BY nom");
-
-                                        while ($donnees = $req->fetch()){
-                                            $id=$donnees['ID'];
-
-                                    ?>
-                                        <div class="elementBox col-lg-6 col-xl-3">
-                                            <div class="card mb-3 main-card">
-                                                <div class="card-body">
-                                                    <div class="widget-content-left">
-                                                        <div class="card-title"><?php echo $donnees['nom']; ?><span class="text-primary"><?php echo ' '.$donnees['prenom']; ?></span></div>
-                                                        <div class="card-subtitle"><?php echo 'Tel. '.$donnees['tel']; ?></div>
-                                                    </div>
-                                                    <div class="collapse" id="<?php echo 'excu-collapse'.$donnees['ID']; ?>">
-                                                        <p><strong>Email: </strong><span class="text-primary"><a href="mailto:<?php echo $donnees['mail']; ?>"><?php echo $donnees['mail']; ?></a></span></p>
-                                                        <p><strong>Adresse: </strong><span class="text-primary"><?php echo $donnees['adresse']; ?></span></p>
-                                                        <p><strong>Ville: </strong><span class="text-primary"><?php echo $donnees['ville']; ?></span></p>
-                                                        <p><strong>Code Postal: </strong><span class="text-primary"><?php echo $donnees['codepostal']; ?></span></p>
-                                                        <p><strong>Pays: </strong><span class="text-primary"><?php echo $donnees['pays']; ?></span></p>
-                                                    </div>
-                                                    <input name="id" type="hidden" value="<?php echo $id;?>">
-                                                    <div class="msgDel alert alert-secondary" role="alert" style="display:none"><strong>Supprimer?</strong><button class="ml-5 mb-1 btn border-0 btn-danger font-weight-bold" onclick="Delete(<?php echo $id;?>)">OUI</button><a href="#" class="ml-2 mb-1 btn border-0 btn-secondary font-weight-bold" onclick="hideDelMsg()">NON</a></div>
-                                                </div>
-                                                <div class="card-footer">
-                                                    <button type="button" data-toggle="collapse" href="<?php echo '#excu-collapse'.$donnees['ID']; ?>" class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-eye"></span></button>
-                                                    <a href="edit-randonneur.php?id=<?php echo $donnees['ID']; ?>" class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-edit"></span></a>
-                                                    <button class="mr-2 btn border-0 btn-outline-danger" onclick="clickDelete(<?php echo $id;?>)"><span class="fas fa-times-circle"></span></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <?php } $req->closeCursor(); ?>
-
+                            <!-- CONTENU ICI  -->
 
                         </div>
                     </div>
@@ -116,5 +82,6 @@
     </div>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
     <script type="text/javascript" src="scripts/del-randonneur.js"></script>
+    <script type="text/javascript" src="scripts/load-randonneur.js"></script>
 </body>
 </html>
