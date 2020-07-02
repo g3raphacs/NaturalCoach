@@ -89,7 +89,6 @@
     </div>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
     <script type="text/javascript" src="scripts/del-excursion.js"></script>
- -->
     <script type="text/javascript" src="scripts/load-dashboard.js"></script>
 </body>
 </html>
