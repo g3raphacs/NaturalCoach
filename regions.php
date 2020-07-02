@@ -64,29 +64,10 @@
 
                     <div class="">
                     <div id="message" class="alert alert-success" role="alert" style="display:none;">Message</div>
-                        <div class="row">
-                                <?php
-                                    $req = $base->query("SELECT *
-                                                        FROM region ORDER BY nom");
-                                    while ($donnees = $req->fetch()){
-                                        $id=$donnees['ID'];
-                                ?>
-                                    <div class="elementBox col-lg-6 col-xl-3">
-                                        <div class="card mb-3 main-card">
-                                            <div class="card-body">
-                                                <div class="widget-content-left">
-                                                    <div class="card-title"><?php echo $donnees['Nom'];?></span></div>
-                                                        <input name="id" type="hidden" value="<?php echo $id;?>">
-                                                        <div class="msgDel alert alert-secondary" role="alert" style="display:none"><strong>Supprimer?</strong><button class="ml-5 mb-1 btn border-0 btn-danger font-weight-bold" onclick="Delete(<?php echo $id;?>)">OUI</button><a href="#" class="ml-2 mb-1 btn border-0 btn-secondary font-weight-bold" onclick="hideDelMsg()">NON</a></div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer">
-                                                <a href="edit-region.php?id=<?php echo $id;?>" class="mr-2 btn border-0 btn-outline-secondary"><span class="fas fa-edit"></span></a>
-                                                <button class="mr-2 btn border-0 btn-outline-danger" onclick="clickDelete(<?php echo $id;?>)"><span class="fas fa-times-circle"></span></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php } $req->closeCursor(); ?>
+                        <div id="contentBox" class="row">
+ 
+
+
                         </div>
                     </div>
 
@@ -101,5 +82,6 @@
     </div>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
     <script type="text/javascript" src="scripts/del-region.js"></script>
+    <script type="text/javascript" src="scripts/load-region.js"></script>
 </body>
 </html>
