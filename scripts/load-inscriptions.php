@@ -11,19 +11,28 @@
         header('Location: errorbdd.php');
     }
 
+    if(isset($_POST['id'])){
+        $ID=$_POST['id'];
 
-    $req = $base->prepare("SELECT `nom`, `nbre_max` FROM excursions WHERE excursions.ID = :ID");
-    $req->execute(array('ID'=>$ID));
-    $excursion = $req->fetch();
-    $titre = $excursion['nom'];
-    $nbreMax = (int)$excursion['nbre_max'];
-    $req -> closeCursor();
+        $req = $base->prepare("SELECT `nom`, `nbre_max` FROM excursions WHERE excursions.ID = :ID");
+        $req->execute(array('ID'=>$ID));
+        $excursion = $req->fetch();
+        $nbreMax = (int)$excursion['nbre_max'];
+        $req -> closeCursor();
 
-    $request =  $base->prepare("SELECT COUNT(*) FROM inscriptions WHERE excursion_id = :id");
-    $request->execute(array('id'=>$ID));
-    $randonneurs = $request->fetch();
-    $randocount = (int)$randonneurs[0];
-    $request -> closeCursor();
+        $request =  $base->prepare("SELECT COUNT(*) FROM planning_guides WHERE excursion_id = :id");
+        $request->execute(array('id'=>$ID));
+        $guides = $request->fetch();
+        $request -> closeCursor();
+
+        $request =  $base->prepare("SELECT COUNT(*) FROM inscriptions WHERE excursion_id = :id");
+        $request->execute(array('id'=>$ID));
+        $randonneurs = $request->fetch();
+        $randocount = (int)$randonneurs[0];
+        $request -> closeCursor();
+
+    }
+
 ?>
 
 

@@ -1,5 +1,7 @@
 const contentBox = document.getElementById('contentBox');
 const searchBar = document.getElementById('search');
+const mainID = document.getElementById('mainID').value;
+
 
 window.onload = function(){
     loadPage();
@@ -17,5 +19,5 @@ function loadPage(){
 
     xhr.open('POST', 'scripts/load-inscriptions.php', true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send();
+    xhr.send("id=" + mainID);
 }
