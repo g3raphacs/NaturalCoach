@@ -81,7 +81,6 @@
         </div>
     </div>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
-    <script type="text/javascript" src="scripts/del-guide.js"></script>
     <script type="text/javascript" src="scripts/load-guide.js"></script>
 </body>
 </html>

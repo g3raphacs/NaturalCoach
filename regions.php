@@ -81,7 +81,6 @@
         </div>
     </div>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
-    <script type="text/javascript" src="scripts/del-region.js"></script>
     <script type="text/javascript" src="scripts/load-region.js"></script>
 </body>
 </html>
