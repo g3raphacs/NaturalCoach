@@ -113,12 +113,7 @@
                                             </i>Ajouter
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="elements-icons.html">
-                                            <i class="metismenu-icon">
-                                            </i>Archives
-                                        </a>
-                                    </li>
+
                                 </ul>
                             </li>
                             <li>
@@ -140,12 +135,7 @@
                                             </i>Ajouter
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="elements-icons.html">
-                                            <i class="metismenu-icon">
-                                            </i>Archives
-                                        </a>
-                                    </li>
+
                                 </ul>
                             </li>
                             <li>
@@ -167,12 +157,7 @@
                                             </i>Ajouter
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="elements-icons.html">
-                                            <i class="metismenu-icon">
-                                            </i>Archives
-                                        </a>
-                                    </li>
+
                                 </ul>
                             </li>
                             <li>
@@ -194,12 +179,7 @@
                                             </i>Ajouter
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="elements-icons.html">
-                                            <i class="metismenu-icon">
-                                            </i>Archives
-                                        </a>
-                                    </li>
+
                                 </ul>
                             </li>
                         </ul>
