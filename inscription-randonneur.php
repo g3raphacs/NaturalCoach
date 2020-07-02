@@ -40,7 +40,7 @@
                         <div class="page-title-wrapper">
                             <div class="page-title-heading">
                                 <div class="page-title-icon">
-                                    <span class="icon-gradient bg-success fas fa-portrait"></span>
+                                    <span class="icon-gradient bg-success fas fa-hiking"></span>
                                 </div>
                                 <div>
                                     <?php echo 'Inscrire un randonneur à <strong>'.$titre.'</strong>'; ?>
