@@ -12,16 +12,24 @@
     }
 
 
-    if(isset($_POST['search'])){
 
-            $search = "%" . $_POST['search'] . "%";
-            $req = $base->prepare("SELECT *
-                                    FROM region
-                                    WHERE nom LIKE :search
-                                    ORDER BY nom");
-            $req->execute(array('search'=>$search));
+    if(isset($_POST['search']) && isset($_POST['page']) && isset($_POST['maxBricks'])){
+        $maxBricks=(int)$_POST['maxBricks'];
+        $page=(int)$_POST['page'];
+        $pageStart=($page-1)*$maxBricks;
 
-    }
+        $search = "%" . $_POST['search'] . "%";
+        $req = $base->prepare("SELECT *
+                                FROM region
+                                WHERE nom LIKE :search
+                                ORDER BY nom
+                                LIMIT :maxBricks OFFSET :pageStart ");
+        $req->bindValue('maxBricks', $maxBricks, PDO::PARAM_INT);
+        $req->bindValue('pageStart', $pageStart, PDO::PARAM_INT);
+        $req->bindValue('search', $search, PDO::PARAM_STR);
+
+        $req->execute();
+}
 
     while ($donnees = $req->fetch()){
         $id=$donnees['ID'];
