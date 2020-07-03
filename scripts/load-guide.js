@@ -33,14 +33,10 @@ let message= document.getElementById("message");
 let elementList = document.getElementsByClassName("elementBox");
 
 let elementObjects =[];
-let init=false;
 
 
 function clickDelete(ID){
-    if(!init){
-        initElements();
-        init=true;
-    }
+    initElements();
     showDelMsg(ID);
 }
 

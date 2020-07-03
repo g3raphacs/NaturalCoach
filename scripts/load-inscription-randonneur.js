@@ -2,6 +2,7 @@ const contentBox = document.getElementById('contentBox');
 const pages = document.getElementById('pages');
 const searchBar = document.getElementById('search');
 const searchBox = document.getElementById('searchBox');
+const mainID = document.getElementById('mainID').value;
 
 let search = '';
 let page = 1;
@@ -24,7 +25,7 @@ function loadPage(){
 
     xhr.open('POST', 'scripts/load-inscription-randonneur.php', true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send("search=" + search + "&page=" + page + "&maxBricks=" + maxBricks);
+    xhr.send("search=" + search + "&page=" + page + "&maxBricks=" + maxBricks + "&mainID=" + mainID);
 }
 
 searchBar.addEventListener("input", () => {
