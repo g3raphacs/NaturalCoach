@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="col-lg-2">
                                     <nav class="" aria-label="Page navigation example">
-                                        <ul id="pages" class="pagination">
+                                        <ul id="pages" class="pagination flex-wrap">
                                             <!-- Pagination ici  -->
                                         </ul>
                                     </nav>
