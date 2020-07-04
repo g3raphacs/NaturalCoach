@@ -20,6 +20,7 @@ function loadPage(){
     xhr.open('POST', 'scripts/load-inscriptions.php', true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send("id=" + mainID);
+    initElements();
 }
 
 
@@ -32,7 +33,6 @@ let elementObjects =[];
 
 
 function clickDelete(ID){
-    initElements();
     showDelMsg(ID);
 }
 
