@@ -13,7 +13,8 @@
 
 
 
-    if(isset($_POST['search']) && isset($_POST['page']) && isset($_POST['maxBricks'])){
+    if(isset($_POST['search']) && isset($_POST['page']) && isset($_POST['maxBricks']) && isset($_POST['mainID'])){
+        $ID=$_POST['mainID'];
         $maxBricks=(int)$_POST['maxBricks'];
         $page=(int)$_POST['page'];
         $pageStart=($page-1)*$maxBricks;
@@ -29,9 +30,8 @@
         $req->bindValue('search', $search, PDO::PARAM_STR);
 
         $req->execute();
-
-
 }
+
 
     while ($donnees = $req->fetch()){
         $id=$donnees['ID'];

@@ -32,7 +32,7 @@
                 $titre = $excursion['nom'];
                 $req -> closeCursor();
             ?>
-
+            <input id ="mainID" type="hidden" name="mainID" value="<?php echo $ID;?>">
             <div class="app-main__outer">
                 <div class="app-main__inner">
                     <!-- Titre<<________________________________________  -->
