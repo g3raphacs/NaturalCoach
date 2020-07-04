@@ -31,8 +31,10 @@
         ));
 
 
-    if(isset($_POST['search'])){
-
+    if(isset($_POST['search']) && isset($_POST['page']) && isset($_POST['maxBricks'])){
+        $maxBricks=(int)$_POST['maxBricks'];
+        $page=(int)$_POST['page'];
+        $pageStart=($page-1)*$maxBricks;
             $search = "%" . $_POST['search'] . "%";
             $req = $base->prepare("SELECT
                             e.ID,
@@ -46,8 +48,13 @@
                         FROM excursions as e
                         INNER JOIN region region1 ON e.lieu_debut = region1.ID
                         INNER JOIN region region2 ON e.lieu_fin = region2.ID
-                        WHERE e.nom LIKE :search");
-            $req->execute(array('search'=>$search));
+                        WHERE e.nom LIKE :search
+                        ORDER BY nom
+                        LIMIT :maxBricks OFFSET :pageStart ");
+            $req->bindValue('maxBricks', $maxBricks, PDO::PARAM_INT);
+            $req->bindValue('pageStart', $pageStart, PDO::PARAM_INT);
+            $req->bindValue('search', $search, PDO::PARAM_STR);
+            $req->execute();
 
     }
 

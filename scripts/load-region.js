@@ -34,7 +34,6 @@ searchBar.addEventListener("input", () => {
     loadPage();
 });
 
-
 function loadPagination(){
     pages.innerHTML='';
 
@@ -74,8 +73,6 @@ function changePage(num){
     loadPagination();
     loadPage();
 }
-
-
 
 
 let message= document.getElementById("message");
