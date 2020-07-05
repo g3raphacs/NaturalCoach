@@ -12,6 +12,11 @@
     <meta name="msapplication-tap-highlight" content="no">
     <link rel="icon" href="./assets/images/favicon.png" />
     <link rel="stylesheet" href="./main.css">
+
+    <style>
+    .app-main__inner{background-color: rgb(60,185,160);}
+    .app-theme-white .app-page-title{background-color: rgb(250,250,250);}
+    </style>
 </head>
 
 <body>
@@ -60,7 +65,7 @@
                                             <input name="id" type="hidden" value="<?php echo $ID;?>">
                                             <div class="position-relative form-group"><label for="nom" class="">Nom</label><input value="<?php echo $donnees['Nom'];?>" name="nom" id="nom" type="text" placeholder="Entrez un nom" class="form-control"></div>
                                             <div id="msg1" class="alert alert-danger" role="alert" style="display:none;">Message</div>
-                                            <button class="mt-2 btn btn-primary">Mettre à jour</button>
+                                            <button class="mt-2 btn btn-primary float-right">Mettre à jour</button>
                                         </form>
                                     </div>
                                 </div>

@@ -12,6 +12,11 @@
     <meta name="msapplication-tap-highlight" content="no">
     <link rel="icon" href="./assets/images/favicon.png" />
     <link rel="stylesheet" href="./main.css">
+
+    <style>
+    .app-main__inner{background-color: rgb(60,185,160);}
+    .app-theme-white .app-page-title{background-color: rgb(250,250,250);}
+    </style>
 </head>
 
 <body>
