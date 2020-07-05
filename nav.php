@@ -9,6 +9,7 @@
         }
     ?>
 
+
 <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
             <div class="app-header__logo">
@@ -90,7 +91,7 @@
                         </button>
                     </span>
                 </div>
-                <div class="scrollbar-sidebar">
+                <div class="scrollbar-sidebar" style="background-color:rgb(35,95,110);">
                     <div class="app-sidebar__inner">
                         <ul class="vertical-nav-menu">
                         <li class="app-sidebar__heading">Gestion</li>
