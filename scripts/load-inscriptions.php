@@ -39,8 +39,8 @@
 
     <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
     <div class="main-card mb-3 ">
-        <div class="card-body"><h5 class="card-title"> <span class="metismenu-icon fas fa-portrait mr-2"></span>Guides participant à l'excursion </h5>
-        <a href="inscription-guide.php?id=<?php echo $ID; ?>"><button class="mr-6 ml-6 mb-2 btn-transition btn btn-primary"><strong>Inscrire un guide &nbsp;</strong>&nbsp;<span class="ml-2 metismenu-icon fas fa-portrait"><?php echo ' '.$guides[0].' '; ?></span></button></a>
+    <div class="card-body"><h5 class="card-title"> <span class="metismenu-icon fas fa-portrait mr-2"></span>Guides participant à l'excursion </h5>
+    <a href="inscription-guide.php?id=<?php echo $ID; ?>"><button class="mr-6 ml-6 mb-2 btn-transition btn btn-primary"><strong>Inscrire un guide &nbsp;</strong>&nbsp;<span class="ml-2 metismenu-icon fas fa-portrait"><?php echo ' '.$guides[0].' '; ?></span></button></a>
             <div class="row">
 
                 <?php
@@ -83,7 +83,11 @@
 
     <div class="main-card mb-3 ">
         <div class="card-body"><h5 class="card-title"> <span class="metismenu-icon fas fa-portrait mr-2"></span>Randonneurs participant à l'excursion </h5>
-        <a href="inscription-randonneur.php?id=<?php echo $ID; ?>"><button class="mr-6 ml-6 mb-2 btn-transition btn btn-primary"><strong>Inscrire un randonneur &nbsp;</strong>&nbsp;<span class="ml-2 metismenu-icon fas fa-hiking"><?php echo ' '.$randocount.'/'.$nbreMax.' '; ?></span></button></a>
+        <?php if( $randocount < $nbreMax ){?>
+            <a href="inscription-randonneur.php?id=<?php echo $ID; ?>"><button class="mr-6 ml-6 mb-2 btn-transition btn btn-primary"><strong>Inscrire un randonneur &nbsp;</strong>&nbsp;<span class="ml-2 metismenu-icon fas fa-hiking"><?php echo ' '.$randocount.'/'.$nbreMax.' '; ?></span></button></a>
+        <?php } else{?>
+            <p class="text-danger"><strong>Groupe complet &nbsp;</strong>&nbsp;<span class="ml-2 metismenu-icon fas fa-hiking"><?php echo ' '.$randocount.'/'.$nbreMax.' '; ?></span></p>
+        <?php }?>
             <div class="row">
 
                 <?php
