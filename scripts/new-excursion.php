@@ -38,7 +38,7 @@ if($_POST['lieu_arrivee']==''){
     $msg5="Vous devez entrer un lieu d'arrivée";
 }
 if($_POST['nbre_max']==''){
-    $msg6='Vous devez un nombre de randonneurs maximum';
+    $msg6='Vous devez entrer un nombre de randonneurs maximum';
 }
 if($_POST['prix']==''){
     $msg7='Vous devez entrer un prix';
