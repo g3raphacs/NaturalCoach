@@ -27,17 +27,20 @@ function loadPage(){
 
 
 let message= document.getElementById("message");
-let elementList = document.getElementsByClassName("elementBox");
 
+
+let elementList = document.getElementsByClassName("elementBox");
 let elementObjects =[];
 
 
 function clickDelete(ID){
+    initElements()
     showDelMsg(ID);
 }
 
 function initElements(){
-
+    elementList = document.getElementsByClassName("elementBox");
+    elementObjects =[];
     for (let i = 0; i < elementList.length; i++) {
         let newElement = new Object();
         newElement.box = elementList[i];

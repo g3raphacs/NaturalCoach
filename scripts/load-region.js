@@ -87,6 +87,8 @@ function clickDelete(ID){
 }
 
 function initElements(){
+    elementList = document.getElementsByClassName("elementBox");
+    elementObjects =[];
 
     for (let i = 0; i < elementList.length; i++) {
         let newElement = new Object();

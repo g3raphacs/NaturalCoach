@@ -3,18 +3,16 @@ let message= document.getElementById("message");
 let elementList = document.getElementsByClassName("elementBox");
 
 let elementObjects =[];
-let init=false;
 
 
 function clickInscription(ID){
-    if(!init){
-        initElements();
-        init=true;
-    }
+    initElements()
     showInscMsg(ID);
 }
 
 function initElements(){
+    elementList = document.getElementsByClassName("elementBox");
+    elementObjects =[];
 
     for (let i = 0; i < elementList.length; i++) {
         let newElement = new Object();
@@ -52,6 +50,7 @@ function Inscription(excursion,guide){
             message.innerHTML='<span class="fas fa-check-circle"></span>&nbsp;'+data.message;
             message.style.display='block';
             setTimeout(messageHide, 1500);
+            loadPage();
             hideInscMsg()
         });
 }
